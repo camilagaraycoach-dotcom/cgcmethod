@@ -245,6 +245,22 @@
 
   .grad-strip { height: 5px; background: var(--grad); }
 
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.delay-1 { transition-delay: 0.1s; }
+  .reveal.delay-2 { transition-delay: 0.2s; }
+  .reveal.delay-3 { transition-delay: 0.3s; }
+  .reveal.delay-4 { transition-delay: 0.4s; }
+  .reveal.delay-5 { transition-delay: 0.5s; }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .section { padding: 5.5rem 2.5rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label {
@@ -518,11 +534,11 @@
 <section class="section">
   <div class="section-inner">
     <div class="what-grid">
-      <div>
+      <div class="reveal">
         <div class="section-label">El programa</div>
         <h2 class="section-title">Entrena como<br>un bailarín<br><span class="grad-text">profesional</span></h2>
       </div>
-      <div>
+      <div class="reveal delay-1">
         <div class="what-body">
           <p>Prepa Física no te enseña pasos — te construye el cuerpo que los hace posibles. Un programa de preparación física profesional diseñado por bailarines, para bailarines que quieren rendir más en escena.</p>
           <p>Trabajamos los músculos exactos que necesitas para elevar piernas, saltar más alto, sostener arabescos y girar con control. Dictado por el equipo de entrenadores CGC, bailarines profesionales especializados en fuerza artística.</p>
@@ -533,7 +549,7 @@
           <div class="stat-box"><span class="stat-num">+10</span><span class="stat-label">Países</span></div>
         </div>
       </div>
-      <div class="what-photo">
+      <div class="what-photo reveal delay-2">
         <img src="assets/img/CAMILA-41.jpg" alt="CGC Method · Elevación de pierna">
       </div>
     </div>
@@ -544,28 +560,28 @@
 
 <section class="section modules-section">
   <div class="section-inner">
-    <div class="section-label">Lo que trabajamos</div>
-    <h2 class="section-title">Todo es parte<br><span class="grad-text">del curso</span></h2>
+    <div class="section-label reveal">Lo que trabajamos</div>
+    <h2 class="section-title reveal delay-1">Todo es parte<br><span class="grad-text">del curso</span></h2>
     <div class="modules-grid">
-      <div class="module-card m1">
+      <div class="module-card m1 reveal delay-1">
         <div class="module-icon">🦵</div>
         <div class="module-title">Elevaciones de pierna</div>
         <p class="module-desc">Entrenamos los músculos que hacen que tu pierna suba y se sostenga — adelante y al costado. Perfecto para développés, mantenciones y grand battements.</p>
         <ul class="module-list"><li>Flexores de cadera y cuádriceps</li><li>Fuerza isométrica de sostén</li><li>Elevación frontal y lateral</li><li>Control en grand battement</li></ul>
       </div>
-      <div class="module-card m2">
+      <div class="module-card m2 reveal delay-2">
         <div class="module-icon">⚡</div>
         <div class="module-title">Saltos y explosividad</div>
         <p class="module-desc">Trabajamos todos los músculos involucrados para que tus saltos sean más altos y tus piernas tengan mayor velocidad al moverse.</p>
         <ul class="module-list"><li>Cadena explosiva posterior</li><li>Pliés y reactividad</li><li>Velocidad de piernas</li><li>Amortiguación y aterrizaje</li></ul>
       </div>
-      <div class="module-card m3">
+      <div class="module-card m3 reveal delay-3">
         <div class="module-icon">🦢</div>
         <div class="module-title">Arabesco y fuerza de espalda</div>
         <p class="module-desc">Trabajamos todos los músculos involucrados para que la pierna se sostenga atrás con fuerza y libertad, ya sea en envelopes o en pateos.</p>
         <ul class="module-list"><li>Glúteo medio y rotadores</li><li>Cadena posterior completa</li><li>Estabilización de pelvis</li><li>Fuerza de espalda baja</li></ul>
       </div>
-      <div class="module-card m4">
+      <div class="module-card m4 reveal delay-4">
         <div class="module-icon">🌀</div>
         <div class="module-title">Giros</div>
         <p class="module-desc">Trabajamos la estabilidad del tobillo, el equilibrio, el centro, el spot y la cabeza. No enseñamos el giro — te preparamos el cuerpo para ejecutarlo.</p>
@@ -580,17 +596,17 @@
 <section class="section for-section">
   <div class="for-bg"><img src="assets/img/CAMILA-20.jpg" alt=""></div>
   <div class="section-inner">
-    <div class="section-label">¿Es para ti?</div>
-    <h2 class="section-title">Sí, si eres<br><span class="grad-text">así</span></h2>
+    <div class="section-label reveal">¿Es para ti?</div>
+    <h2 class="section-title reveal delay-1">Sí, si eres<br><span class="grad-text">así</span></h2>
     <div class="for-grid">
-      <ul class="check-list">
+      <ul class="check-list reveal delay-2">
         <li><div class="check-badge">01</div>Eres bailarín/a, gimnasta, patinador artístico o artista del movimiento y quieres un cuerpo más fuerte y funcional</li>
         <li><div class="check-badge">02</div>Sientes que tu físico limita lo que tu técnica puede expresar en escena</li>
         <li><div class="check-badge">03</div>Quieres mejorar elevaciones, saltos, arabescos y giros con entrenamiento especializado</li>
         <li><div class="check-badge">04</div>Quieres entrenar bajo el régimen de un bailarín profesional, respetando las líneas del cuerpo</li>
         <li><div class="check-badge">05</div>Buscas entrenamiento profesional desde casa, a tu ritmo, sin equipamiento especial</li>
       </ul>
-      <div>
+      <div class="reveal delay-3">
         <div class="quote-block">
           <span class="quote-mark">"</span>
           <p class="quote-text">La técnica sin base física es como querer subir una escalera sin escalones. Puedes verla, puedes saber cómo sería, pero no llegas.</p>
@@ -606,7 +622,7 @@
 
 <section class="section">
   <div class="section-inner">
-    <div class="instructor-grid">
+    <div class="instructor-grid reveal">
       <!-- REEMPLAZAR con foto real del equipo CGC -->
       <img src="assets/img/CAMILA-42 (1).jpg" alt="Equipo CGC Method" class="instructor-img">
       <div>
@@ -632,12 +648,12 @@
 
 <section class="section clases-section">
   <div class="section-inner">
-    <div class="section-label">Clases en vivo</div>
-    <h2 class="section-title">Así se ve<br><span class="grad-text">una clase real</span></h2>
+    <div class="section-label reveal">Clases en vivo</div>
+    <h2 class="section-title reveal delay-1">Así se ve<br><span class="grad-text">una clase real</span></h2>
     <div class="clases-grid">
-      <img src="assets/img/clase-vivo-1.png" alt="Clase en vivo CGC Method">
-      <img src="assets/img/clase-vivo-2.png" alt="Clase en vivo CGC Method">
-      <img src="assets/img/clase-vivo-3.png" alt="Clase en vivo CGC Method">
+      <img src="assets/img/clase-vivo-1.png" alt="Clase en vivo CGC Method" class="reveal delay-1">
+      <img src="assets/img/clase-vivo-2.png" alt="Clase en vivo CGC Method" class="reveal delay-2">
+      <img src="assets/img/clase-vivo-3.png" alt="Clase en vivo CGC Method" class="reveal delay-3">
     </div>
   </div>
 </section>
@@ -646,21 +662,21 @@
 
 <section class="section testimonials-section">
   <div class="section-inner">
-    <div class="section-label">Resultados reales</div>
-    <h2 class="section-title">Lo que dicen<br><span class="grad-text">las alumnas</span></h2>
+    <div class="section-label reveal">Resultados reales</div>
+    <h2 class="section-title reveal delay-1">Lo que dicen<br><span class="grad-text">las alumnas</span></h2>
     <div class="testimonials-grid">
       <!-- REEMPLAZAR los 3 cards con testimoniales reales -->
-      <div class="testi-card">
+      <div class="testi-card reveal delay-1">
         <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
         <p class="testi-quote">"Dos meses con el programa y mis giros mejoraron de forma increíble. Por fin entendí qué parte de mi cuerpo no estaba activando."</p>
         <div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">María R.</div><div class="testi-loc">Bailarina de jazz · México</div></div></div>
       </div>
-      <div class="testi-card">
+      <div class="testi-card reveal delay-2">
         <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
         <p class="testi-quote">"Nunca pensé que pudiera mejorar tanto mis saltos sin ir a un gimnasio. El contenido es muy claro y lo aplico directo en mi ensayo."</p>
         <div class="testi-author"><div class="testi-avatar">LT</div><div><div class="testi-name">Lucía T.</div><div class="testi-loc">Estudiante de ballet · Argentina</div></div></div>
       </div>
-      <div class="testi-card">
+      <div class="testi-card reveal delay-3">
         <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
         <p class="testi-quote">"El módulo de arabesque fue revelador. Cami explica todo con una precisión que no había encontrado en ningún otro curso online."</p>
         <div class="testi-author"><div class="testi-avatar">SV</div><div><div class="testi-name">Sofia V.</div><div class="testi-loc">Bailarina contemporánea · España</div></div></div>
@@ -673,42 +689,42 @@
 
 <section class="section price-section" id="inscribete">
   <div class="section-inner" style="text-align:center;">
-    <div class="section-label">Inversión</div>
-    <h2 class="section-title">Empieza <span class="grad-text">hoy</span></h2>
-    <p class="price-note-top">Paquetes de 4 clases en adelante incluyen acceso a +100 clases grabadas.</p>
+    <div class="section-label reveal">Inversión</div>
+    <h2 class="section-title reveal delay-1">Empieza <span class="grad-text">hoy</span></h2>
+    <p class="price-note-top reveal delay-2">Paquetes de 4 clases en adelante incluyen acceso a +100 clases grabadas.</p>
     <div class="price-grid">
-      <div class="pkg-card">
+      <div class="pkg-card reveal delay-1">
         <div class="pkg-num">1</div>
         <div class="pkg-type">Clase en vivo</div>
         <p class="pkg-desc">Para conocer el método y sentir cómo trabaja el equipo CGC.</p>
         <a href="https://camilagaraycoach.com/products/1-clase-online-en-vivo?variant=47159884808366" class="btn-main" target="_blank">Inscribirme →</a>
       </div>
-      <div class="pkg-card">
+      <div class="pkg-card reveal delay-2">
         <div class="pkg-num">4</div>
         <div class="pkg-type">Clases en vivo + grabaciones</div>
         <p class="pkg-desc">Empiezas a sentir la diferencia en tu rendimiento. Vigencia: 1 mes.</p>
         <a href="https://camilagaraycoach.com/products/4-clases-virtuales?variant=47157324447918" class="btn-main" target="_blank">Inscribirme →</a>
       </div>
-      <div class="pkg-card popular">
+      <div class="pkg-card popular reveal delay-3">
         <div class="pkg-badge">Más popular</div>
         <div class="pkg-num">8</div>
         <div class="pkg-type">Clases en vivo + grabaciones</div>
         <p class="pkg-desc">Donde se notan los cambios reales en tu físico y técnica. Vigencia: 1 mes.</p>
         <a href="https://camilagaraycoach.com/products/8-clases-online-en-vivo?variant=47157324939438" class="btn-main" target="_blank">Inscribirme →</a>
       </div>
-      <div class="pkg-card">
+      <div class="pkg-card reveal delay-4">
         <div class="pkg-num">12</div>
         <div class="pkg-type">Clases en vivo + grabaciones</div>
         <p class="pkg-desc">Progresión sólida. Resultados claros y sostenibles. Vigencia: 2 meses.</p>
         <a href="https://camilagaraycoach.com/products/12-clases-online-en-vivo?variant=47159884054702" class="btn-main" target="_blank">Inscribirme →</a>
       </div>
-      <div class="pkg-card">
+      <div class="pkg-card reveal delay-5">
         <div class="pkg-num">20</div>
         <div class="pkg-type">Clases en vivo + grabaciones</div>
         <p class="pkg-desc">Para quienes se comprometen en serio con su rendimiento. Vigencia: 2 meses.</p>
         <a href="https://camilagaraycoach.com/products/20-clase-en-vivo-clase-grabadas?variant=47461021188270" class="btn-main" target="_blank">Inscribirme →</a>
       </div>
-      <div class="pkg-card">
+      <div class="pkg-card reveal delay-5">
         <div class="pkg-num">32</div>
         <div class="pkg-type">Clases en vivo + grabaciones</div>
         <p class="pkg-desc">El camino completo. Máxima progresión y mejor precio por clase. Vigencia: 3 meses.</p>
@@ -729,9 +745,9 @@
 
 <section class="section">
   <div class="section-inner">
-    <div class="section-label">Preguntas frecuentes</div>
-    <h2 class="section-title"><span class="grad-text">FAQ</span></h2>
-    <div class="faq-inner">
+    <div class="section-label reveal">Preguntas frecuentes</div>
+    <h2 class="section-title reveal delay-1"><span class="grad-text">FAQ</span></h2>
+    <div class="faq-inner reveal delay-2">
       <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Qué equipamiento necesito?<span class="faq-icon">+</span></button><div class="faq-answer">Necesitas 2 bloques de yoga, 1 liga de resistencia y 2 pesas pequeñas de 0.5 a 1 kg. No necesitas ir a un gimnasio — todo se usa desde casa.</div></div>
       <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Por cuánto tiempo tengo acceso?<span class="faq-icon">+</span></button><div class="faq-answer">Depende del paquete que elijas: los paquetes de 1 a 8 clases tienen vigencia de 1 mes; de 12 a 20 clases, 2 meses; y el de 32 clases, 3 meses. El plazo corre desde la primera clase tomada.</div></div>
       <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Qué incluye el acceso a clases grabadas?<span class="faq-icon">+</span></button><div class="faq-answer">Desde el paquete de 4 clases en adelante, tienes acceso a una biblioteca de más de 100 clases grabadas durante la vigencia de tu paquete. Puedes complementar tus clases en vivo con ellas en cualquier momento.</div></div>
@@ -747,9 +763,9 @@
   <div class="final-orb final-orb-2"></div>
   <div class="final-bg-img"><img src="assets/img/CAMILA-38 (1).jpg" alt=""></div>
   <div class="final-inner">
-    <h2 class="final-title">Tu danza<br><span class="grad-text">sin límites</span><br>físicos</h2>
-    <p class="final-sub">No esperes más. El momento de construir tu base atlética es ahora.</p>
-    <div class="final-actions">
+    <h2 class="final-title reveal">Tu danza<br><span class="grad-text">sin límites</span><br>físicos</h2>
+    <p class="final-sub reveal delay-1">No esperes más. El momento de construir tu base atlética es ahora.</p>
+    <div class="final-actions reveal delay-2">
       <a href="https://camilagaraycoach.com/collections/all" class="btn-grad" target="_blank">Ver paquetes e inscribirme →</a>
       <a href="https://wa.me/51954655122?text=Hola!%20Vi%20Prepa%20F%C3%ADsica%20y%20quiero%20saber%20m%C3%A1s" class="btn-ghost-dark" target="_blank">¿Dudas? Escríbenos</a>
     </div>
@@ -783,6 +799,18 @@
     sticky.classList.toggle('visible', !e.isIntersecting);
   }, { threshold: 0.05 });
   obs.observe(hero);
+
+  // Scroll reveal
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('revealed');
+        revealObs.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
