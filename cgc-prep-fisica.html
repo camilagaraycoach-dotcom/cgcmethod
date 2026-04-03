@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prepa Física · CGC Method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #E8302A;
+    --orange: #F47920;
+    --yellow: #F9B233;
+    --purple: #7B5EA7;
+    --blue:   #5B6BB5;
+    --dark:   #111010;
+    --white:  #ffffff;
+    --grad: linear-gradient(90deg, #E8302A, #F47920, #F9B233, #7B5EA7, #5B6BB5);
+    --grad-diag: linear-gradient(135deg, #E8302A 0%, #F47920 30%, #F9B233 55%, #7B5EA7 80%, #5B6BB5 100%);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .grad-text {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--grad);
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: var(--grad);
+    z-index: 3;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #1a0a0a 0%, #0d0814 40%, #080d1a 100%);
+  }
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .hero-orb-1 { width: 500px; height: 500px; top: -100px; left: -100px; background: #E8302A; }
+  .hero-orb-2 { width: 400px; height: 400px; top: 20%; right: -80px; background: #5B6BB5; }
+  .hero-orb-3 { width: 350px; height: 350px; bottom: 10%; left: 30%; background: #F47920; opacity: 0.2; }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17,10,10,0.1) 0%, rgba(17,10,10,0.5) 60%, rgba(17,10,10,0.95) 100%);
+    z-index: 1;
+  }
+  .hero-image-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .placeholder-dancer {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(14rem, 40vw, 30rem);
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    user-select: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 2.5rem 4rem;
+    max-width: 900px;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(8px);
+  }
+  .hero-tag-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--grad);
+    flex-shrink: 0;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 13rem);
+    line-height: 0.85;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    margin-bottom: 0.15em;
+  }
+  .hero-title .grad-line {
+    display: block;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    max-width: 540px;
+    margin-bottom: 2rem;
+    margin-top: 1.25rem;
+  }
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.25rem;
+  }
+  .pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    backdrop-filter: blur(4px);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  .btn-grad {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--grad);
+    padding: 1rem 2.25rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(232,48,42,0.35);
+  }
+  .btn-grad:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,48,42,0.45); }
+  .btn-ghost-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-ghost-light:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.08); }
+
+  .grad-strip { height: 5px; background: var(--grad); }
+
+  .section { padding: 5.5rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr 320px; gap: 3rem; align-items: start; }
+  .what-photo { border-radius: 20px; overflow: hidden; }
+  .what-photo img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; object-position: top center; border-radius: 20px; display: block; }
+  @media (max-width: 900px) { .what-photo { display: none; } }
+  .what-body { font-size: 1rem; color: #4a4a4a; line-height: 1.8; }
+  .what-body p + p { margin-top: 1.25rem; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .stat-box {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: var(--grad);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    display: block;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #888; margin-top: 0.3rem; display: block; }
+
+  .modules-section { background: var(--dark); }
+  .modules-section .section-title { color: var(--white); }
+  .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .module-card {
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .module-card:hover { transform: translateY(-4px); }
+  .module-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .module-card.m1::before { background: linear-gradient(90deg, #E8302A, #F47920); }
+  .module-card.m2::before { background: linear-gradient(90deg, #F47920, #F9B233); }
+  .module-card.m3::before { background: linear-gradient(90deg, #F9B233, #7B5EA7); }
+  .module-card.m4::before { background: linear-gradient(90deg, #7B5EA7, #5B6BB5); }
+  .module-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 0.25rem; }
+  .m1 .module-num { color: #E8302A; }
+  .m2 .module-num { color: #F47920; }
+  .m3 .module-num { color: #F9B233; }
+  .m4 .module-num { color: #FF4DAF; }
+  .module-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1rem; }
+  .m1 .module-icon { background: rgba(232,48,42,0.25); }
+  .m2 .module-icon { background: rgba(244,121,32,0.25); }
+  .m3 .module-icon { background: rgba(249,178,51,0.25); }
+  .m4 .module-icon { background: rgba(255,77,175,0.25); }
+  .module-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.75rem; color: var(--white); }
+  .module-desc { font-size: 0.88rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 1.25rem; }
+  .module-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .module-list li { font-size: 0.82rem; color: rgba(255,255,255,0.75); display: flex; align-items: center; gap: 0.6rem; }
+  .module-list li::before { content: ''; width: 16px; height: 2px; flex-shrink: 0; border-radius: 2px; }
+  .m1 .module-list li::before { background: #E8302A; }
+  .m2 .module-list li::before { background: #F47920; }
+  .m3 .module-list li::before { background: #F9B233; }
+  .m4 .module-list li::before { background: #FF4DAF; }
+
+  .for-section { background: #fff8f5; position: relative; overflow: hidden; }
+  .for-bg { position: absolute; right: 0; top: 0; bottom: 0; width: 320px; opacity: 0.12; pointer-events: none; }
+  .for-bg img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  @media (max-width: 900px) { .for-bg { display: none; } }
+  .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.95rem; color: #333; line-height: 1.6; padding: 1.25rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .check-list li:last-child { border-bottom: none; }
+  .check-badge { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.72rem; font-weight: 700; margin-top: 1px; }
+  .quote-block { background: var(--dark); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
+  .quote-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad); }
+  .quote-mark { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 0.5; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; display: block; }
+  .quote-text { font-size: 1.05rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 1.5rem; }
+  .quote-author { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .no-equipment { margin-top: 1.25rem; padding: 1.25rem 1.5rem; background: rgba(249,178,51,0.1); border: 1px solid rgba(249,178,51,0.25); border-radius: 12px; font-size: 0.88rem; color: #6a5a2a; line-height: 1.65; display: flex; gap: 0.75rem; align-items: flex-start; }
+
+.instructor-grid { display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: center; }
+  .instructor-img-placeholder { width: 100%; aspect-ratio: 3/4; background: linear-gradient(160deg, rgba(232,48,42,0.12), rgba(91,107,181,0.12)); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: #aaa; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; position: relative; overflow: hidden; }
+  .instructor-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; border-radius: 20px; display: block; }
+  .instructor-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; line-height: 0.95; color: var(--dark); margin-bottom: 0.25rem; }
+  .instructor-role { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1.75rem; display: block; }
+  .instructor-bio { font-size: 0.95rem; color: #555; line-height: 1.8; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
+  .tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); padding: 0.4rem 0.9rem; border-radius: 100px; }
+  .tag:nth-child(1) { background: var(--red); }
+  .tag:nth-child(2) { background: var(--orange); }
+  .tag:nth-child(3) { background: var(--purple); }
+  .tag:nth-child(4) { background: var(--blue); }
+
+  .clases-section { background: var(--dark); }
+  .clases-section .section-title { color: var(--white); }
+  .clases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .clases-grid img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 16px; display: block; opacity: 0.9; transition: opacity 0.2s, transform 0.2s; }
+  .clases-grid img:hover { opacity: 1; transform: scale(1.02); }
+  @media (max-width: 700px) { .clases-grid { grid-template-columns: 1fr; } }
+
+  .testimonials-section { background: #f5f5ff; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+  .testi-card { background: var(--white); border-radius: 20px; padding: 2rem; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .testi-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+  .testi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .testi-card:nth-child(1)::before { background: linear-gradient(90deg, #E8302A, #F47920); }
+  .testi-card:nth-child(2)::before { background: linear-gradient(90deg, #F47920, #F9B233); }
+  .testi-card:nth-child(3)::before { background: linear-gradient(90deg, #7B5EA7, #5B6BB5); }
+  .testi-stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+  .star { width: 12px; height: 12px; background: #F9B233; clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+  .testi-quote { font-size: 0.9rem; font-weight: 300; font-style: italic; color: #444; line-height: 1.75; margin-bottom: 1.5rem; }
+  .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+  .testi-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--white); flex-shrink: 0; }
+  .testi-card:nth-child(1) .testi-avatar { background: linear-gradient(135deg, #E8302A, #F47920); }
+  .testi-card:nth-child(2) .testi-avatar { background: linear-gradient(135deg, #F47920, #F9B233); }
+  .testi-card:nth-child(3) .testi-avatar { background: linear-gradient(135deg, #7B5EA7, #5B6BB5); }
+  .testi-name { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+  .testi-loc { font-size: 0.72rem; color: #999; margin-top: 1px; }
+
+  .price-section { background: var(--dark); }
+  .price-section .section-title { color: var(--white); }
+  .price-note-top { text-align: center; font-size: 0.82rem; color: rgba(255,255,255,0.45); margin: 0.5rem 0 2.5rem; }
+  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1rem; }
+  .pkg-card { border-radius: 20px; padding: 2rem 1.75rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); position: relative; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s; }
+  .pkg-card:hover { transform: translateY(-3px); }
+  .pkg-card.popular { border-color: var(--orange); background: rgba(244,121,32,0.07); }
+  .pkg-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--orange); color: white; padding: 0.3rem 0.9rem; border-radius: 100px; white-space: nowrap; }
+  .pkg-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; margin-bottom: 0.1rem; }
+  .pkg-card:nth-child(1) .pkg-num { color: #F9B233; }
+  .pkg-card:nth-child(2) .pkg-num { color: #F47920; }
+  .pkg-card:nth-child(3) .pkg-num { color: #E8302A; }
+  .pkg-card:nth-child(4) .pkg-num { color: #FF4DAF; }
+  .pkg-card:nth-child(5) .pkg-num { color: #F9B233; }
+  .pkg-card:nth-child(6) .pkg-num { color: #F47920; }
+  .pkg-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-top: -0.5rem; }
+  .pkg-desc { font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.6; flex: 1; }
+  .pkg-rec { font-size: 0.75rem; color: rgba(255,255,255,0.35); font-style: italic; margin-top: 0.25rem; }
+  .btn-main { display: block; text-align: center; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); background: var(--grad); padding: 0.85rem; border-radius: 100px; text-decoration: none; transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(232,48,42,0.35); margin-top: auto; }
+  .btn-main:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,48,42,0.5); }
+  @media (max-width: 900px) { .price-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .price-grid { grid-template-columns: 1fr; } }
+
+  .faq-inner { max-width: 680px; margin: 3rem auto 0; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+  .faq-btn { width: 100%; background: none; border: none; color: var(--dark); font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; text-align: left; padding: 1.35rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.2s; }
+  .faq-btn:hover { color: var(--red); }
+  .faq-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--grad); color: white; font-size: 1rem; font-weight: 300; display: flex; align-items: center; justify-content: center; transition: transform 0.25s; line-height: 1; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; font-size: 0.9rem; color: #666; line-height: 1.75; }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.35rem; }
+
+  .final { text-align: center; padding: 8rem 2.5rem; background: var(--white); position: relative; overflow: hidden; }
+  .final::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad); }
+  .final-orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.12; pointer-events: none; }
+  .final-orb-1 { width: 400px; height: 400px; top: -100px; left: -100px; background: #E8302A; }
+  .final-orb-2 { width: 350px; height: 350px; bottom: -100px; right: -100px; background: #5B6BB5; }
+  .final-bg-img { position: absolute; inset: 0; pointer-events: none; }
+  .final-bg-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.15; }
+  @media (max-width: 900px) { .final-photo { display: none; } }
+  .final-inner { position: relative; z-index: 1; max-width: 650px; margin: 0 auto; }
+  .final-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.9; letter-spacing: 0.02em; color: var(--dark); margin-bottom: 1.5rem; }
+  .final-sub { font-size: 1rem; color: #666; line-height: 1.75; margin-bottom: 2.5rem; }
+  .final-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  .btn-ghost-dark { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); background: transparent; border: 1.5px solid rgba(0,0,0,0.2); padding: 1rem 2rem; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  .btn-ghost-dark:hover { border-color: rgba(0,0,0,0.4); background: rgba(0,0,0,0.04); }
+
+  .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; width: 54px; height: 54px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s, box-shadow 0.2s; }
+  .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 26px; height: 26px; fill: white; }
+
+  .sticky { position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border-top: 1px solid rgba(0,0,0,0.08); padding: 0.875rem 2.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transform: translateY(100%); transition: transform 0.3s ease; box-shadow: 0 -4px 20px rgba(0,0,0,0.08); }
+  .sticky.visible { transform: translateY(0); }
+  .sticky-text { font-size: 0.82rem; color: #666; font-weight: 400; }
+
+  footer { padding: 2rem 2.5rem; background: var(--dark); border-top: 3px solid transparent; background-image: linear-gradient(var(--dark), var(--dark)), var(--grad); background-origin: border-box; background-clip: padding-box, border-box; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.18em; text-decoration: none; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0.875rem 1.25rem; }
+    .hero-content { padding: 0 1.25rem 3rem; }
+    .section { padding: 3.5rem 1.25rem; }
+    .what-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .modules-grid { grid-template-columns: 1fr; }
+    .for-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .instructor-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .price-center { max-width: 100%; }
+    .stats-row { grid-template-columns: 1fr; gap: 0.75rem; }
+    footer { padding: 1.5rem 1.25rem; flex-direction: column; text-align: center; }
+    .sticky { padding: 0.875rem 1.25rem; }
+  }
+  @media (max-width: 500px) {
+    .hero-title { font-size: clamp(4rem, 18vw, 5.5rem); }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .final-actions { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">CGC Method</a>
+  <a href="https://camilagaraycoach.com/collections/all" class="nav-cta" target="_blank">Inscríbete →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-image-placeholder">
+    <img src="assets/img/CAMILA-45 (1).jpg" alt="Camila Garay · CGC Method" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="hero-tag-dot"></span>CGC Method · Curso Online</div>
+    <h1 class="hero-title">PREPA<span class="grad-line">FÍSICA</span></h1>
+    <p class="hero-subtitle">Preparación física profesional para bailarines, gimnastas y artistas del movimiento que quieren destacar — dictada por bailarines profesionales del equipo CGC.</p>
+    <div class="hero-pills">
+      <span class="pill">Bailarines</span>
+      <span class="pill">Gimnastas</span>
+      <span class="pill">Patinadores artísticos</span>
+      <span class="pill">Desde casa</span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://camilagaraycoach.com/collections/all" class="btn-grad" target="_blank">Ver paquetes e inscribirme →</a>
+      <a href="https://wa.me/51954655122?text=Hola!%20Vi%20Prepa%20F%C3%ADsica%20y%20quiero%20saber%20m%C3%A1s" class="btn-ghost-light" target="_blank">¿Dudas? Escríbenos</a>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="what-grid">
+      <div>
+        <div class="section-label">El programa</div>
+        <h2 class="section-title">Entrena como<br>un bailarín<br><span class="grad-text">profesional</span></h2>
+      </div>
+      <div>
+        <div class="what-body">
+          <p>Prepa Física no te enseña pasos — te construye el cuerpo que los hace posibles. Un programa de preparación física profesional diseñado por bailarines, para bailarines que quieren rendir más en escena.</p>
+          <p>Trabajamos los músculos exactos que necesitas para elevar piernas, saltar más alto, sostener arabescos y girar con control. Dictado por el equipo de entrenadores CGC, bailarines profesionales especializados en fuerza artística.</p>
+        </div>
+        <div class="stats-row">
+          <div class="stat-box"><span class="stat-num">4</span><span class="stat-label">Áreas</span></div>
+          <div class="stat-box"><span class="stat-num">100%</span><span class="stat-label">Online</span></div>
+          <div class="stat-box"><span class="stat-num">+10</span><span class="stat-label">Países</span></div>
+        </div>
+      </div>
+      <div class="what-photo">
+        <img src="assets/img/CAMILA-41.jpg" alt="CGC Method · Elevación de pierna">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section modules-section">
+  <div class="section-inner">
+    <div class="section-label">Lo que trabajamos</div>
+    <h2 class="section-title">Todo es parte<br><span class="grad-text">del curso</span></h2>
+    <div class="modules-grid">
+      <div class="module-card m1">
+        <div class="module-icon">🦵</div>
+        <div class="module-title">Elevaciones de pierna</div>
+        <p class="module-desc">Entrenamos los músculos que hacen que tu pierna suba y se sostenga — adelante y al costado. Perfecto para développés, mantenciones y grand battements.</p>
+        <ul class="module-list"><li>Flexores de cadera y cuádriceps</li><li>Fuerza isométrica de sostén</li><li>Elevación frontal y lateral</li><li>Control en grand battement</li></ul>
+      </div>
+      <div class="module-card m2">
+        <div class="module-icon">⚡</div>
+        <div class="module-title">Saltos y explosividad</div>
+        <p class="module-desc">Trabajamos todos los músculos involucrados para que tus saltos sean más altos y tus piernas tengan mayor velocidad al moverse.</p>
+        <ul class="module-list"><li>Cadena explosiva posterior</li><li>Pliés y reactividad</li><li>Velocidad de piernas</li><li>Amortiguación y aterrizaje</li></ul>
+      </div>
+      <div class="module-card m3">
+        <div class="module-icon">🦢</div>
+        <div class="module-title">Arabesco y fuerza de espalda</div>
+        <p class="module-desc">Trabajamos todos los músculos involucrados para que la pierna se sostenga atrás con fuerza y libertad, ya sea en envelopes o en pateos.</p>
+        <ul class="module-list"><li>Glúteo medio y rotadores</li><li>Cadena posterior completa</li><li>Estabilización de pelvis</li><li>Fuerza de espalda baja</li></ul>
+      </div>
+      <div class="module-card m4">
+        <div class="module-icon">🌀</div>
+        <div class="module-title">Giros</div>
+        <p class="module-desc">Trabajamos la estabilidad del tobillo, el equilibrio, el centro, el spot y la cabeza. No enseñamos el giro — te preparamos el cuerpo para ejecutarlo.</p>
+        <ul class="module-list"><li>Estabilidad de tobillo y pie</li><li>Equilibrio y control del eje</li><li>Core profundo y centro</li><li>Spot y coordinación de cabeza</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section for-section">
+  <div class="for-bg"><img src="assets/img/CAMILA-20.jpg" alt=""></div>
+  <div class="section-inner">
+    <div class="section-label">¿Es para ti?</div>
+    <h2 class="section-title">Sí, si eres<br><span class="grad-text">así</span></h2>
+    <div class="for-grid">
+      <ul class="check-list">
+        <li><div class="check-badge">01</div>Eres bailarín/a, gimnasta, patinador artístico o artista del movimiento y quieres un cuerpo más fuerte y funcional</li>
+        <li><div class="check-badge">02</div>Sientes que tu físico limita lo que tu técnica puede expresar en escena</li>
+        <li><div class="check-badge">03</div>Quieres mejorar elevaciones, saltos, arabescos y giros con entrenamiento especializado</li>
+        <li><div class="check-badge">04</div>Quieres entrenar bajo el régimen de un bailarín profesional, respetando las líneas del cuerpo</li>
+        <li><div class="check-badge">05</div>Buscas entrenamiento profesional desde casa, a tu ritmo, sin equipamiento especial</li>
+      </ul>
+      <div>
+        <div class="quote-block">
+          <span class="quote-mark">"</span>
+          <p class="quote-text">La técnica sin base física es como querer subir una escalera sin escalones. Puedes verla, puedes saber cómo sería, pero no llegas.</p>
+          <div class="quote-author">— Camila Garay · CGC Method</div>
+        </div>
+        <div class="no-equipment"><span>🎒</span><span>Necesitas 2 bloques de yoga, 1 liga de resistencia y 2 pesas de 0.5 a 1 kg. Todo desde casa, sin ir al gimnasio.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="instructor-grid">
+      <!-- REEMPLAZAR con foto real del equipo CGC -->
+      <img src="assets/img/CAMILA-42 (1).jpg" alt="Equipo CGC Method" class="instructor-img">
+      <div>
+        <div class="section-label">Tus entrenadores</div>
+        <h3 class="instructor-name">Equipo<br>CGC</h3>
+        <span class="instructor-role">Bailarines profesionales · CGC Method</span>
+        <div class="instructor-bio">
+          <p>Las clases de Prepa Física son dictadas por el equipo de entrenadores CGC — bailarines profesionales especializados en preparación física artística, con años de experiencia entrenando a bailarines, gimnastas y artistas del movimiento de todo el mundo.</p>
+          <p>Entrenamos con la precisión y el estándar de un bailarín profesional: respetando las líneas del cuerpo, la técnica y la fuerza corporal real que necesitas para destacar en escena.</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Bailarines profesionales</span>
+          <span class="tag">Fuerza artística</span>
+          <span class="tag">Coaching online</span>
+          <span class="tag">+20 países</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section clases-section">
+  <div class="section-inner">
+    <div class="section-label">Clases en vivo</div>
+    <h2 class="section-title">Así se ve<br><span class="grad-text">una clase real</span></h2>
+    <div class="clases-grid">
+      <img src="assets/img/clase-vivo-1.png" alt="Clase en vivo CGC Method">
+      <img src="assets/img/clase-vivo-2.png" alt="Clase en vivo CGC Method">
+      <img src="assets/img/clase-vivo-3.png" alt="Clase en vivo CGC Method">
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section testimonials-section">
+  <div class="section-inner">
+    <div class="section-label">Resultados reales</div>
+    <h2 class="section-title">Lo que dicen<br><span class="grad-text">las alumnas</span></h2>
+    <div class="testimonials-grid">
+      <!-- REEMPLAZAR los 3 cards con testimoniales reales -->
+      <div class="testi-card">
+        <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="testi-quote">"Dos meses con el programa y mis giros mejoraron de forma increíble. Por fin entendí qué parte de mi cuerpo no estaba activando."</p>
+        <div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">María R.</div><div class="testi-loc">Bailarina de jazz · México</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="testi-quote">"Nunca pensé que pudiera mejorar tanto mis saltos sin ir a un gimnasio. El contenido es muy claro y lo aplico directo en mi ensayo."</p>
+        <div class="testi-author"><div class="testi-avatar">LT</div><div><div class="testi-name">Lucía T.</div><div class="testi-loc">Estudiante de ballet · Argentina</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="testi-quote">"El módulo de arabesque fue revelador. Cami explica todo con una precisión que no había encontrado en ningún otro curso online."</p>
+        <div class="testi-author"><div class="testi-avatar">SV</div><div><div class="testi-name">Sofia V.</div><div class="testi-loc">Bailarina contemporánea · España</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section price-section" id="inscribete">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">Inversión</div>
+    <h2 class="section-title">Empieza <span class="grad-text">hoy</span></h2>
+    <p class="price-note-top">Paquetes de 4 clases en adelante incluyen acceso a +100 clases grabadas.</p>
+    <div class="price-grid">
+      <div class="pkg-card">
+        <div class="pkg-num">1</div>
+        <div class="pkg-type">Clase en vivo</div>
+        <p class="pkg-desc">Para conocer el método y sentir cómo trabaja el equipo CGC.</p>
+        <a href="https://camilagaraycoach.com/products/1-clase-online-en-vivo?variant=47159884808366" class="btn-main" target="_blank">Inscribirme →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-num">4</div>
+        <div class="pkg-type">Clases en vivo + grabaciones</div>
+        <p class="pkg-desc">Empiezas a sentir la diferencia en tu rendimiento. Vigencia: 1 mes.</p>
+        <a href="https://camilagaraycoach.com/products/4-clases-virtuales?variant=47157324447918" class="btn-main" target="_blank">Inscribirme →</a>
+      </div>
+      <div class="pkg-card popular">
+        <div class="pkg-badge">Más popular</div>
+        <div class="pkg-num">8</div>
+        <div class="pkg-type">Clases en vivo + grabaciones</div>
+        <p class="pkg-desc">Donde se notan los cambios reales en tu físico y técnica. Vigencia: 1 mes.</p>
+        <a href="https://camilagaraycoach.com/products/8-clases-online-en-vivo?variant=47157324939438" class="btn-main" target="_blank">Inscribirme →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-num">12</div>
+        <div class="pkg-type">Clases en vivo + grabaciones</div>
+        <p class="pkg-desc">Progresión sólida. Resultados claros y sostenibles. Vigencia: 2 meses.</p>
+        <a href="https://camilagaraycoach.com/products/12-clases-online-en-vivo?variant=47159884054702" class="btn-main" target="_blank">Inscribirme →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-num">20</div>
+        <div class="pkg-type">Clases en vivo + grabaciones</div>
+        <p class="pkg-desc">Para quienes se comprometen en serio con su rendimiento. Vigencia: 2 meses.</p>
+        <a href="https://camilagaraycoach.com/products/20-clase-en-vivo-clase-grabadas?variant=47461021188270" class="btn-main" target="_blank">Inscribirme →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-num">32</div>
+        <div class="pkg-type">Clases en vivo + grabaciones</div>
+        <p class="pkg-desc">El camino completo. Máxima progresión y mejor precio por clase. Vigencia: 3 meses.</p>
+        <a href="https://camilagaraycoach.com/products/32-clases-online-en-vivo-biblioteca-de-clase-grabadas?variant=47661074579630" class="btn-main" target="_blank">Inscribirme →</a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; margin-bottom:1rem;">¿Tienes dudas de algún paquete?</p>
+      <a href="https://wa.me/51954655122?text=Hola!%20Tengo%20dudas%20sobre%20los%20paquetes%20de%20Prepa%20F%C3%ADsica%2C%20%C2%BFme%20pueden%20asesorar%3F" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:white;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.9rem 2rem;border-radius:100px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(37,211,102,0.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.4)'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Hablar con un asesor
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="grad-strip"></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title"><span class="grad-text">FAQ</span></h2>
+    <div class="faq-inner">
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Qué equipamiento necesito?<span class="faq-icon">+</span></button><div class="faq-answer">Necesitas 2 bloques de yoga, 1 liga de resistencia y 2 pesas pequeñas de 0.5 a 1 kg. No necesitas ir a un gimnasio — todo se usa desde casa.</div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Por cuánto tiempo tengo acceso?<span class="faq-icon">+</span></button><div class="faq-answer">Depende del paquete que elijas: los paquetes de 1 a 8 clases tienen vigencia de 1 mes; de 12 a 20 clases, 2 meses; y el de 32 clases, 3 meses. El plazo corre desde la primera clase tomada.</div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Qué incluye el acceso a clases grabadas?<span class="faq-icon">+</span></button><div class="faq-answer">Desde el paquete de 4 clases en adelante, tienes acceso a una biblioteca de más de 100 clases grabadas durante la vigencia de tu paquete. Puedes complementar tus clases en vivo con ellas en cualquier momento.</div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Es apto para niños y jóvenes?<span class="faq-icon">+</span></button><div class="faq-answer">Sí. El programa está diseñado para estudiantes desde los 8 años con experiencia previa en danza, gimnasia o patinaje artístico. Se recomienda supervisión de un adulto para los más pequeños.</div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Quién dicta las clases?<span class="faq-icon">+</span></button><div class="faq-answer">Las clases son dictadas por el equipo de entrenadores CGC, bailarines profesionales especializados en preparación física artística. No enseñamos pasos — preparamos tu cuerpo para ejecutarlos.</div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">¿Puedo tomarlo desde cualquier país?<span class="faq-icon">+</span></button><div class="faq-answer">Sí, 100% online. Solo necesitas internet. Las clases son en español y ya tenemos alumnos en más de 10 países.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-orb final-orb-1"></div>
+  <div class="final-orb final-orb-2"></div>
+  <div class="final-bg-img"><img src="assets/img/CAMILA-38 (1).jpg" alt=""></div>
+  <div class="final-inner">
+    <h2 class="final-title">Tu danza<br><span class="grad-text">sin límites</span><br>físicos</h2>
+    <p class="final-sub">No esperes más. El momento de construir tu base atlética es ahora.</p>
+    <div class="final-actions">
+      <a href="https://camilagaraycoach.com/collections/all" class="btn-grad" target="_blank">Ver paquetes e inscribirme →</a>
+      <a href="https://wa.me/51954655122?text=Hola!%20Vi%20Prepa%20F%C3%ADsica%20y%20quiero%20saber%20m%C3%A1s" class="btn-ghost-dark" target="_blank">¿Dudas? Escríbenos</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">CGC Method</a>
+  <span class="footer-copy">© 2025 CGC Method · Todos los derechos reservados</span>
+</footer>
+
+<a href="https://wa.me/51954655122?text=Hola!%20Vi%20Prepa%20F%C3%ADsica%20y%20quiero%20saber%20m%C3%A1s" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="sticky" id="stickyBar">
+  <span class="sticky-text">Prepa Física para Bailarines · CGC Method</span>
+  <a href="https://camilagaraycoach.com/collections/all" class="nav-cta" target="_blank">Ver paquetes →</a>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  const hero = document.querySelector('.hero');
+  const sticky = document.getElementById('stickyBar');
+  const obs = new IntersectionObserver(([e]) => {
+    sticky.classList.toggle('visible', !e.isIntersecting);
+  }, { threshold: 0.05 });
+  obs.observe(hero);
+</script>
+</body>
+</html>
