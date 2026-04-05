@@ -678,13 +678,48 @@ function renderPrograms(){
     </div>
   </button>`;
 
-  h+=`<button class="one-on-one" onclick="pickProgram('1on1')">
-    <span style="font-size:1.3rem">🎯</span>
-    <div style="flex:1">
-      <div style="font-weight:700;font-size:0.9rem;color:#111827">Clases personalizadas 1:1</div>
-      <div style="font-size:0.75rem;color:var(--ts)">Acrobacias, técnica específica o plan a medida</div>
+  h+=`<button class="one-on-one" onclick="window.location.href='cgc-1on1.html'"
+    style="padding:0;overflow:hidden;border:none;border-radius:20px;display:flex;flex-direction:column;align-items:stretch;gap:0;
+           background:linear-gradient(135deg,#0d0d1a 0%,#1a0a2e 60%,#0a1020 100%);
+           box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(139,92,246,0.3);
+           margin-top:10px;width:100%;cursor:pointer;transition:all 0.3s;text-align:left">
+    <div style="position:relative;width:100%;height:200px;overflow:hidden;background:#0d0d1a;display:flex;align-items:center;justify-content:center">
+      <img src="img/virtual8.png" alt="Clase 1:1"
+        style="height:200px;width:auto;display:block;object-fit:contain;">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,26,0.3) 0%,rgba(13,13,26,0) 40%,rgba(13,13,26,0) 55%,rgba(13,13,26,0.95) 100%)"></div>
+      <div style="position:absolute;top:12px;left:14px;font-size:0.6rem;font-weight:800;letter-spacing:2.5px;
+                  text-transform:uppercase;color:#F59E0B;background:rgba(245,158,11,0.15);
+                  border:1px solid rgba(245,158,11,0.35);padding:4px 10px;border-radius:100px">
+        ✦ Programa exclusivo
+      </div>
+      <div style="position:absolute;bottom:14px;left:14px;right:14px">
+        <div style="font-weight:800;font-size:1.4rem;color:#fff;font-family:'Sora',sans-serif;line-height:1.15">
+          Clases 1:1 con Camila
+        </div>
+      </div>
     </div>
-    <span style="color:var(--tm)">→</span>
+    <div style="padding:14px 16px 18px">
+      <div style="font-size:0.82rem;color:rgba(255,255,255,0.75);margin-bottom:12px;line-height:1.5">
+        Técnica · Flexibilidad · Acrobacias · Plan a medida
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+        <span style="font-size:0.72rem;font-weight:700;color:#fff;background:rgba(255,255,255,0.08);
+                     border:1px solid rgba(255,255,255,0.12);padding:5px 10px;border-radius:100px">
+          🌐 Virtual — desde cualquier parte del mundo
+        </span>
+        <span style="font-size:0.72rem;font-weight:700;color:#fff;background:rgba(255,255,255,0.08);
+                     border:1px solid rgba(255,255,255,0.12);padding:5px 10px;border-radius:100px">
+          📍 Presencial en Lima, Perú
+        </span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px;text-transform:uppercase">
+          Ver planes y precios
+        </div>
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#3B82F6);
+                    display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff">→</div>
+      </div>
+    </div>
   </button>`;
 
   h+=`<div class="moti"><q>No necesitas ser flexible para empezar. Necesitas empezar para ser flexible.</q><div class="by">— Camila Garay</div></div>`;

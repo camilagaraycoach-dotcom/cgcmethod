@@ -101,6 +101,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
 .step-text-block .step-lbl{font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:700;color:#111827}
 .step-text-block .step-desc{font-size:0.82rem;color:var(--ts);line-height:1.4;margin-top:2px}
 
+/* ── FAQ ── */
+.faq-section{padding:1.5rem;max-width:480px;margin:0 auto}
+.faq-item{border:1.5px solid rgba(0,0,0,0.08);border-radius:14px;margin-bottom:10px;overflow:hidden;background:#fff}
+.faq-q{width:100%;text-align:left;padding:14px 16px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:#111827}
+.faq-q .faq-icon{font-size:1rem;flex-shrink:0;transition:transform 0.3s;color:#8B5CF6}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease;font-size:0.83rem;color:#4B5563;line-height:1.6;padding:0 16px}
+.faq-item.open .faq-a{max-height:200px;padding:0 16px 14px}
+
 /* ── Footer ── */
 .footer{text-align:center;padding:1.5rem;border-top:3px solid transparent;border-image:linear-gradient(90deg,#F59E0B,#EF4444,#8B5CF6,#3B82F6,#10B981) 1}
 .footer-brand{font-size:10px;color:var(--tm);letter-spacing:2px;text-transform:uppercase;font-weight:600}
@@ -251,7 +260,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
     <div class="step-num">2</div>
     <div class="step-text-block">
       <div class="step-lbl">Realiza el pago para confirmar</div>
-      <div class="step-desc">Perú: Yape / Plin / BCP · Internacional: te enviamos un link de pago personalizado por WhatsApp.</div>
+      <div class="step-desc">Perú: Yape / Plin / BCP · Internacional: pago directo con tarjeta integrado en cada plan.</div>
     </div>
   </div>
   <div class="step-row anim-up">
@@ -293,6 +302,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
     <span class="plan-icon">🚀</span>
     <div class="plan-name" style="color:#3B82F6">CGC Elite Standard</div>
     <div class="plan-tagline">Proceso estructurado · Seguimiento continuo</div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:5px 10px;margin-bottom:10px;font-size:0.75rem;color:#3B82F6;font-weight:700">🎙️ Incluye entrevista previa para conocer tus metas</div>
     <div class="plan-price-row">
       <div class="plan-price" style="color:#3B82F6">$459 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
       <div class="plan-price-sol" id="sol-459">Calculando...</div>
@@ -319,6 +329,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
     <span class="plan-icon">💎</span>
     <div class="plan-name" style="color:#F59E0B">CGC Elite Premium</div>
     <div class="plan-tagline">Transformación acelerada · Seguimiento prioritario</div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.25);border-radius:8px;padding:5px 10px;margin-bottom:10px;font-size:0.75rem;color:#D97706;font-weight:700">🎙️ Incluye entrevista previa para conocer tus metas</div>
     <div class="plan-price-row">
       <div class="plan-price" style="color:#F59E0B">$799 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
       <div class="plan-price-sol" id="sol-799">Calculando...</div>
@@ -427,6 +438,76 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
   </div>
 </div>
 
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="section-title anim-up" style="margin-bottom:0.4rem">Preguntas frecuentes</div>
+  <div class="section-sub anim-fade" style="margin-bottom:1.25rem">Todo lo que necesitas saber antes de empezar</div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Las clases son en vivo o grabadas?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Las clases son 100% en vivo y personalizadas. Cada sesión se adapta a tus objetivos y nivel en tiempo real con Camila.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Qué necesito para la clase virtual?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Un iPad o laptop con cámara, un espacio despejado donde puedas moverte con libertad, dos bloques de yoga y una banda elástica.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Dónde son las clases presenciales?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">En AcroFlex Training Center — Husares de Junín 374, Jesús María, Lima, Perú.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿En qué consiste la entrevista previa (Standard y Premium)?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Antes de empezar, Camila te hace una entrevista estratégica para conocer en profundidad tus metas, historial deportivo y disponibilidad. Así el programa se diseña 100% a tu medida.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Puedo pagar en soles?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Sí, si estás en Perú puedes pagar en soles por Yape, Plin o transferencia BCP. El tipo de cambio se actualiza automáticamente en la página.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Puedo cambiar o cancelar mi reserva?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Sí, puedes reagendar tu sesión con al menos 24 horas de anticipación directamente desde el calendario de confirmación.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Para qué nivel son las clases?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Para todos los niveles y edades. Desde quien quiere ganar flexibilidad por primera vez hasta deportistas de competencia que buscan perfeccionar técnica específica.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Soy internacional — ¿el pago es en dólares?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Sí, los precios están en USD, pero no te preocupes — tu banco hace la conversión automáticamente a tu moneda local al momento del pago. No necesitas hacer nada extra. Además, los horarios en el calendario ya están configurados en tu zona horaria, así que solo elige el que más te convenga.</div>
+  </div>
+</div>
+
 <!-- Footer -->
 <div class="footer">
   <div class="footer-brand">CGC Method · Camila Garay Coach<br><span style="font-size:9px;opacity:0.5;">Flexibility · Acro · Dance Technique</span></div>
@@ -463,6 +544,14 @@ function updateSoles(rate){
 }
 
 fetchRate();
+
+// ── FAQ ─────────────────────────────────────────────────────────────────────
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
 
 // ── Datos de calendarios y pagos ────────────────────────────────────────────
 const CALS = {
