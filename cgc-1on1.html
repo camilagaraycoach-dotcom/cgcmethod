@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CGC Elite — Clases 1:1 con Camila Garay</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F7FF;--card:#FFFFFF;--hover:#F0EDFF;--t:#111827;--ts:#6B7280;--tm:#9CA3AF;--ps:#F59E0B;--ar:#3B82F6;--pr:#10B981;--pur:#8B5CF6;--red:#EF4444}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;overflow-x:hidden}
+
+/* ── Header ── */
+.header{text-align:center;padding:2rem 1.5rem 1.5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,#fff 0%,#F3F0FF 50%,#EFF6FF 100%)}
+.header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(245,158,11,0.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(59,130,246,0.08) 0%,transparent 50%)}
+.logo{width:130px;height:auto;margin-bottom:0.75rem;position:relative;z-index:2;animation:headerFadeDown 0.6s ease both}
+.header h1{font-family:'Sora',sans-serif;font-size:1.9rem;font-weight:800;line-height:1.15;position:relative;z-index:2;animation:headerFadeDown 0.65s 0.1s ease both}
+.header h1 span{background:linear-gradient(135deg,#F59E0B,#EF4444,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-sub{font-size:1rem;color:var(--ts);position:relative;z-index:2;margin-top:6px;font-weight:500;animation:headerFadeDown 0.65s 0.18s ease both}
+.header-badge{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:#fff;border:1.5px solid rgba(0,0,0,0.08);border-radius:100px;padding:7px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.07);position:relative;z-index:2;animation:headerFadeDown 0.65s 0.28s ease both}
+.header-badge span{font-size:0.78rem;font-weight:600;color:#374151;line-height:1.4}
+.cupos-banner{background:linear-gradient(135deg,#EF4444,#F59E0B);color:#fff;text-align:center;padding:10px 1.5rem;font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:800;letter-spacing:0.3px}
+
+@keyframes headerFadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Sección ── */
+.section{padding:1.25rem 1.5rem;max-width:480px;margin:0 auto}
+.section-title{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;text-align:center;margin-bottom:0.5rem;line-height:1.25}
+.section-sub{font-size:0.9rem;color:var(--ts);text-align:center;margin-bottom:1.25rem;line-height:1.5}
+
+/* ── Plan cards ── */
+.plan-card{background:var(--card);border:2px solid rgba(0,0,0,0.08);border-radius:20px;padding:1.5rem;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,0.07);position:relative;overflow:hidden}
+.plan-card.featured{border-color:#3B82F6;box-shadow:0 4px 20px rgba(59,130,246,0.18)}
+.plan-card.premium{border-color:#F59E0B;box-shadow:0 4px 20px rgba(245,158,11,0.18)}
+.plan-badge{position:absolute;top:14px;right:14px;font-size:9px;font-weight:800;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.8px;color:#fff}
+.plan-badge.blue{background:linear-gradient(135deg,#3B82F6,#8B5CF6)}
+.plan-badge.gold{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+
+.plan-icon{font-size:2rem;margin-bottom:8px;display:block}
+.plan-name{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:2px}
+.plan-tagline{font-size:0.83rem;color:var(--ts);margin-bottom:1rem}
+
+.plan-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:1rem}
+.plan-price{font-family:'Sora',sans-serif;font-size:2.2rem;font-weight:800;color:var(--t)}
+.plan-price-orig{font-size:1rem;color:var(--tm);text-decoration:line-through;font-weight:500}
+.plan-price-sol{font-size:0.82rem;color:var(--pr);font-weight:700;background:rgba(16,185,129,0.08);padding:3px 8px;border-radius:6px}
+
+.plan-features{list-style:none;margin-bottom:1.25rem}
+.plan-features li{font-size:0.87rem;color:#374151;padding:5px 0;display:flex;align-items:flex-start;gap:9px;border-bottom:1px solid rgba(0,0,0,0.04);line-height:1.4}
+.plan-features li:last-child{border-bottom:none}
+.plan-features li .ico{flex-shrink:0;font-size:0.95rem;margin-top:1px}
+.plan-features li.no{color:var(--tm)}
+
+.plan-btn{display:block;width:100%;text-align:center;padding:14px;border-radius:14px;font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer;color:#fff}
+.plan-btn.violet{background:linear-gradient(135deg,#8B5CF6,#3B82F6)}
+.plan-btn.violet:hover{box-shadow:0 8px 25px rgba(139,92,246,0.4);transform:translateY(-2px)}
+.plan-btn.blue-grad{background:linear-gradient(135deg,#3B82F6,#8B5CF6)}
+.plan-btn.blue-grad:hover{box-shadow:0 8px 25px rgba(59,130,246,0.4);transform:translateY(-2px)}
+.plan-btn.gold-grad{background:linear-gradient(135deg,#F59E0B,#EF4444)}
+.plan-btn.gold-grad:hover{box-shadow:0 8px 25px rgba(245,158,11,0.4);transform:translateY(-2px)}
+.plan-wa{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;text-align:center;padding:11px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.3s;color:#25D366;background:rgba(37,211,102,0.08);border:1.5px solid rgba(37,211,102,0.2);margin-top:8px}
+.plan-wa:hover{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.4)}
+
+/* Descuento nota sesion */
+.discount-note{background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.2);border-radius:10px;padding:8px 12px;margin-top:8px;font-size:0.78rem;color:#5B21B6;font-weight:600;text-align:center}
+
+/* ── Divider ── */
+.divider{border:none;border-top:1px solid rgba(0,0,0,0.08);margin:0.5rem 0}
+
+/* ── Booking ── */
+.booking-section{padding:1.5rem;max-width:480px;margin:0 auto}
+.modality-toggle{display:flex;gap:8px;margin-bottom:1.25rem}
+.mod-btn{flex:1;padding:12px;border-radius:12px;border:2px solid rgba(0,0,0,0.09);background:var(--card);font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.3s;color:var(--ts)}
+.mod-btn.active{border-color:#8B5CF6;background:rgba(139,92,246,0.07);color:#5B21B6}
+.cal-wrapper{border-radius:16px;overflow:hidden;border:1.5px solid rgba(0,0,0,0.08);background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.07)}
+.cal-wrapper iframe{width:100%;height:620px;border:none;display:block}
+.presencial-note{background:linear-gradient(135deg,#FFF7ED,#FFF);border:1.5px solid rgba(245,158,11,0.25);border-radius:12px;padding:10px 14px;margin-bottom:10px;font-size:0.82rem;color:#92400E;font-weight:600;text-align:center}
+
+/* ── Pago ── */
+.payment-section{padding:1.5rem;max-width:480px;margin:0 auto}
+.payment-title{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;margin-bottom:1rem;text-align:center}
+.payment-tab{display:flex;gap:8px;margin-bottom:1rem}
+.pay-btn{flex:1;padding:10px;border-radius:10px;border:2px solid rgba(0,0,0,0.09);background:var(--card);font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.3s;color:var(--ts)}
+.pay-btn.active{border-color:#10B981;background:rgba(16,185,129,0.07);color:#065F46}
+.pay-box{background:var(--card);border:1.5px solid rgba(0,0,0,0.08);border-radius:16px;padding:1.25rem;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.pay-method{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06)}
+.pay-method:last-child{border-bottom:none}
+.pay-method .pm-icon{font-size:1.5rem;flex-shrink:0}
+.pay-method .pm-label{font-size:0.78rem;color:var(--ts);font-weight:500}
+.pay-method .pm-value{font-family:'Sora',sans-serif;font-size:0.95rem;font-weight:800;color:#111827}
+.rate-note{font-size:0.75rem;color:var(--tm);text-align:center;margin-top:8px}
+.confirm-wa{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;border-radius:14px;background:#25D366;color:#fff;font-family:'Sora',sans-serif;font-size:0.95rem;font-weight:800;text-decoration:none;margin-top:1rem;transition:all 0.3s}
+.confirm-wa:hover{background:#1FAD56;box-shadow:0 8px 25px rgba(37,211,102,0.4);transform:translateY(-2px)}
+.intl-box{background:linear-gradient(135deg,#EFF6FF,#F5F3FF);border:1.5px solid rgba(59,130,246,0.2);border-radius:16px;padding:1.25rem;text-align:center}
+.intl-box p{font-size:0.88rem;color:#374151;line-height:1.6;margin-bottom:1rem}
+
+/* ── Steps ── */
+.steps{padding:0 1.5rem 1.5rem;max-width:480px;margin:0 auto}
+.step-row{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#3B82F6);color:#fff;font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-text-block .step-lbl{font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:700;color:#111827}
+.step-text-block .step-desc{font-size:0.82rem;color:var(--ts);line-height:1.4;margin-top:2px}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:1.5rem;border-top:3px solid transparent;border-image:linear-gradient(90deg,#F59E0B,#EF4444,#8B5CF6,#3B82F6,#10B981) 1}
+.footer-brand{font-size:10px;color:var(--tm);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* ── Animaciones ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp 0.35s ease forwards}
+.anim-up{opacity:0;transform:translateY(28px);transition:opacity 0.5s cubic-bezier(0.22,1,0.36,1),transform 0.5s cubic-bezier(0.22,1,0.36,1)}
+.anim-up.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- Banner cupos -->
+<div class="cupos-banner">🔥 SOLO 3 CUPOS MENSUALES — Asegura tu lugar</div>
+
+<!-- Header -->
+<div class="header">
+  <img class="logo" src="https://camilagaraycoach-dotcom.github.io/cgcmethod/img-logo.png" onerror="this.style.display='none'" alt="CGC Method">
+  <h1>CGC <span>Elite</span></h1>
+  <div class="header-sub">Programa personalizado 1:1 · Para quienes quieren<br>resultados reales y dirección estratégica</div>
+  <div class="header-badge">
+    <span>👩‍🏫</span>
+    <span>Clases con <strong style="color:#8B5CF6">Camila Garay</strong> · Presencial en Lima o Virtual</span>
+  </div>
+</div>
+
+<!-- Cómo funciona -->
+<div class="section">
+  <div class="section-title">¿Cómo funciona?</div>
+  <div class="section-sub">3 pasos simples para empezar</div>
+</div>
+<div class="steps">
+  <div class="step-row anim-up">
+    <div class="step-num">1</div>
+    <div class="step-text-block">
+      <div class="step-lbl">Elige tu plan y reserva tu hora</div>
+      <div class="step-desc">Selecciona el plan que se ajusta a tus metas y agenda tu sesión directamente en el calendario.</div>
+    </div>
+  </div>
+  <div class="step-row anim-up">
+    <div class="step-num">2</div>
+    <div class="step-text-block">
+      <div class="step-lbl">Realiza el pago para confirmar</div>
+      <div class="step-desc">Perú: Yape / Plin / BCP · Internacional: te enviamos un link de pago personalizado por WhatsApp.</div>
+    </div>
+  </div>
+  <div class="step-row anim-up">
+    <div class="step-num">3</div>
+    <div class="step-text-block">
+      <div class="step-lbl">Empieza tu transformación</div>
+      <div class="step-desc">Recibes confirmación y todos los detalles para tu primera sesión con Camila.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Planes -->
+<div class="section">
+  <div class="section-title">Elige tu plan</div>
+  <div class="section-sub">Desde una sesión suelta hasta un proceso completo de transformación</div>
+
+  <!-- Sesión Estratégica -->
+  <div class="plan-card anim-up">
+    <span class="plan-icon">🎯</span>
+    <div class="plan-name">Sesión Estratégica 1:1</div>
+    <div class="plan-tagline">Una hora contigo. Sin compromiso.</div>
+    <div class="plan-price-row">
+      <div class="plan-price">$60 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
+      <div class="plan-price-sol" id="sol-60">Calculando...</div>
+    </div>
+    <ul class="plan-features">
+      <li><span class="ico">📋</span>Formulario inicial detallado</li>
+      <li><span class="ico">⏱️</span>1 sesión en vivo de 1 hora</li>
+      <li><span class="ico">💬</span>Diagnóstico y dirección personalizada</li>
+      <li><span class="ico">🎁</span>Descuento especial si te sumas a CGC Elite esa semana</li>
+    </ul>
+    <button class="plan-btn violet" onclick="scrollToCal()">Reservar mi sesión →</button>
+    <div class="discount-note">💡 Si decides continuar con un plan Elite la misma semana, se descuenta de tu inversión</div>
+  </div>
+
+  <!-- Standard -->
+  <div class="plan-card featured anim-up">
+    <div class="plan-badge blue">⭐ Recomendado</div>
+    <span class="plan-icon">🚀</span>
+    <div class="plan-name" style="color:#3B82F6">CGC Elite Standard</div>
+    <div class="plan-tagline">Proceso estructurado · Seguimiento continuo</div>
+    <div class="plan-price-row">
+      <div class="plan-price" style="color:#3B82F6">$459 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
+      <div class="plan-price-sol" id="sol-459">Calculando...</div>
+    </div>
+    <ul class="plan-features">
+      <li><span class="ico">📋</span>Formulario detallado + entrevista estratégica inicial</li>
+      <li><span class="ico">🎯</span><strong>4 sesiones</strong> 1:1 en vivo con Camila</li>
+      <li><span class="ico">📅</span>Planificación semanal personalizada</li>
+      <li><span class="ico">👥</span>4 clases grupales CGC Method al mes incluidas</li>
+      <li><span class="ico">🧭</span>Selección estratégica de clases según tus metas</li>
+      <li><span class="ico">📊</span>4 informes de avance personalizados</li>
+      <li><span class="ico">🔄</span>Seguimiento continuo durante el proceso</li>
+    </ul>
+    <a class="plan-btn blue-grad" href="https://wa.me/51954655122?text=${encodeURIComponent('Hola! Me interesa el plan CGC Elite Standard ($459). ¿Cómo procedo?')}" target="_blank">Quiero el Standard →</a>
+    <a class="plan-wa" href="https://wa.me/51954655122?text=Hola%21%20Me%20interesa%20el%20plan%20CGC%20Elite%20Standard%20%28%24459%29.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20info%3F" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      ¿Dudas? Habla con un asesor
+    </a>
+  </div>
+
+  <!-- Premium -->
+  <div class="plan-card premium anim-up">
+    <div class="plan-badge gold">🏆 Resultados en menos tiempo</div>
+    <span class="plan-icon">💎</span>
+    <div class="plan-name" style="color:#F59E0B">CGC Elite Premium</div>
+    <div class="plan-tagline">Transformación acelerada · Seguimiento prioritario</div>
+    <div class="plan-price-row">
+      <div class="plan-price" style="color:#F59E0B">$799 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
+      <div class="plan-price-sol" id="sol-799">Calculando...</div>
+    </div>
+    <ul class="plan-features">
+      <li><span class="ico">📋</span>Formulario detallado + entrevista estratégica inicial</li>
+      <li><span class="ico">🎯</span><strong>8 sesiones</strong> 1:1 en vivo con Camila</li>
+      <li><span class="ico">📅</span>Planificación semanal personalizada <strong>(con más ajustes)</strong></li>
+      <li><span class="ico">👥</span>4 clases grupales CGC Method al mes incluidas</li>
+      <li><span class="ico">🧭</span>Selección estratégica de clases según tus metas</li>
+      <li><span class="ico">📊</span>4 informes de avance personalizados</li>
+      <li><span class="ico">⚡</span>Seguimiento <strong>prioritario</strong> durante todo el proceso</li>
+    </ul>
+    <a class="plan-btn gold-grad" href="https://wa.me/51954655122?text=Hola%21%20Me%20interesa%20el%20plan%20CGC%20Elite%20Premium%20%28%24799%29.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20info%3F" target="_blank" rel="noopener">Quiero el Premium →</a>
+    <a class="plan-wa" href="https://wa.me/51954655122?text=Hola%21%20Me%20interesa%20el%20plan%20CGC%20Elite%20Premium%20%28%24799%29.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20info%3F" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      ¿Dudas? Habla con un asesor
+    </a>
+  </div>
+</div>
+
+<!-- Reservar sesión suelta -->
+<div id="booking" class="booking-section">
+  <div class="section-title" style="margin-bottom:0.5rem">Reserva tu Sesión Estratégica</div>
+  <div class="section-sub">Elige si quieres clase online o presencial en Lima, Perú</div>
+
+  <div class="modality-toggle">
+    <button class="mod-btn active" onclick="selectMod('online')">🌐 Virtual (Online)</button>
+    <button class="mod-btn" onclick="selectMod('presencial')">📍 Presencial · Lima</button>
+  </div>
+
+  <div id="note-presencial" class="presencial-note" style="display:none">
+    📍 Clases presenciales en <strong>AcroFlex, Lima, Perú</strong>
+  </div>
+
+  <div class="cal-wrapper">
+    <iframe id="cal-online" src="https://tidycal.com/camilagaraycoach/cgc-elite-entrevista" title="Reservar sesión online"></iframe>
+    <iframe id="cal-presencial" src="https://tidycal.com/camilagaraycoach/cgc-elite-presencial" title="Reservar sesión presencial" style="display:none"></iframe>
+  </div>
+</div>
+
+<!-- Pago -->
+<div class="payment-section">
+  <div class="payment-title">💳 Confirma tu pago</div>
+  <div class="section-sub" style="margin-bottom:1rem">Selecciona tu ubicación para ver las instrucciones</div>
+
+  <div class="payment-tab">
+    <button class="pay-btn active" onclick="selectPay('peru')">🇵🇪 Perú</button>
+    <button class="pay-btn" onclick="selectPay('intl')">🌍 Internacional</button>
+  </div>
+
+  <!-- Peru -->
+  <div id="pay-peru">
+    <div class="pay-box">
+      <div style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:700;color:var(--ts);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px">Métodos de pago</div>
+      <div class="pay-method">
+        <div class="pm-icon">📱</div>
+        <div style="flex:1">
+          <div class="pm-label">Yape / Plin</div>
+          <div class="pm-value">954 655 122</div>
+          <div style="font-size:0.75rem;color:var(--ts);margin-top:2px">A nombre de Camila Garay</div>
+        </div>
+      </div>
+      <div class="pay-method">
+        <div class="pm-icon">🏦</div>
+        <div style="flex:1">
+          <div class="pm-label">BCP · Cuenta Soles</div>
+          <div class="pm-value">193-94356284-0-75</div>
+        </div>
+      </div>
+      <div class="pay-method">
+        <div class="pm-icon">🔢</div>
+        <div style="flex:1">
+          <div class="pm-label">CCI (Interbancario)</div>
+          <div class="pm-value" style="font-size:0.82rem">002-193-194356284075-11</div>
+        </div>
+      </div>
+      <div class="rate-note" id="rate-note">Cargando tipo de cambio...</div>
+    </div>
+    <a class="confirm-wa" href="https://wa.me/51954655122?text=Hola%21%20Acabo%20de%20reservar%20mi%20sesi%C3%B3n%20CGC%20Elite%20y%20realic%C3%A9%20el%20pago.%20Te%20env%C3%ADo%20el%20comprobante%20para%20confirmar." target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar comprobante por WhatsApp
+    </a>
+  </div>
+
+  <!-- Internacional -->
+  <div id="pay-intl" style="display:none">
+    <div class="intl-box">
+      <div style="font-size:2rem;margin-bottom:8px">🌍</div>
+      <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:1rem;color:#111827;margin-bottom:8px">Pago internacional</div>
+      <p>Escríbenos por WhatsApp indicando el plan que elegiste y <strong>te generamos un link de pago personalizado</strong> según la cantidad de sesiones.</p>
+      <a class="confirm-wa" href="https://wa.me/51954655122?text=Hola%21%20Soy%20del%20extranjero%20y%20quiero%20reservar%20mi%20sesi%C3%B3n%20CGC%20Elite.%20%C2%BFPueden%20generarme%20un%20link%20de%20pago%3F" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Solicitar link de pago
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-brand">CGC Method · Camila Garay Coach<br><span style="font-size:9px;opacity:0.5;">Flexibility · Acro · Dance Technique</span></div>
+</div>
+
+<script>
+const WA = 'https://wa.me/51954655122?text=';
+
+// ── Tipo de cambio ──────────────────────────────────────────────────────────
+async function fetchRate(){
+  try{
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    const data = await res.json();
+    const rate = data.rates.PEN;
+    updateSoles(rate);
+    document.getElementById('rate-note').textContent =
+      `Tipo de cambio: 1 USD = S/ ${rate.toFixed(2)} (Google Finance)`;
+  } catch(e){
+    updateSoles(3.72); // fallback
+    document.getElementById('rate-note').textContent =
+      'Tipo de cambio referencial: 1 USD ≈ S/ 3.72';
+  }
+}
+
+function updateSoles(rate){
+  const amounts = [{id:'sol-60',usd:60},{id:'sol-459',usd:459},{id:'sol-799',usd:799}];
+  amounts.forEach(({id,usd})=>{
+    const el = document.getElementById(id);
+    if(el){
+      const soles = Math.round(usd * rate);
+      el.textContent = `≈ S/ ${soles.toLocaleString('es-PE')}`;
+    }
+  });
+}
+
+fetchRate();
+
+// ── Calendario ──────────────────────────────────────────────────────────────
+function selectMod(type){
+  const online = type === 'online';
+  document.getElementById('cal-online').style.display  = online ? 'block' : 'none';
+  document.getElementById('cal-presencial').style.display = online ? 'none' : 'block';
+  document.getElementById('note-presencial').style.display = online ? 'none' : 'block';
+  document.querySelectorAll('.mod-btn').forEach((btn,i)=>{
+    btn.classList.toggle('active', (i===0) === online);
+  });
+}
+
+// ── Pago tabs ───────────────────────────────────────────────────────────────
+function selectPay(type){
+  const isPeru = type === 'peru';
+  document.getElementById('pay-peru').style.display = isPeru ? 'block' : 'none';
+  document.getElementById('pay-intl').style.display = isPeru ? 'none' : 'block';
+  document.querySelectorAll('.pay-btn').forEach((btn,i)=>{
+    btn.classList.toggle('active',(i===0) === isPeru);
+  });
+}
+
+// ── Scroll al calendario ────────────────────────────────────────────────────
+function scrollToCal(){
+  document.getElementById('booking').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── Animaciones scroll ──────────────────────────────────────────────────────
+function initAnim(){
+  if(!window.IntersectionObserver) return;
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }});
+  },{threshold:0.08,rootMargin:'0px 0px -24px 0px'});
+  document.querySelectorAll('.anim-up').forEach((el,i)=>{
+    el.style.transitionDelay = (i*0.07)+'s';
+    obs.observe(el);
+  });
+}
+requestAnimationFrame(()=>requestAnimationFrame(initAnim));
+</script>
+</body>
+</html>
