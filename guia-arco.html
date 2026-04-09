@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 Tips para mejorar tu arco sin dolor | CGC Method</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #E8302A;
+      --orange: #F47B20;
+      --pink: #E5406A;
+      --purple: #8B4FA8;
+      --blue: #4A7FC1;
+      --dark: #1C1820;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── BARRA ARCOÍRIS ─── */
+    .rainbow {
+      height: 5px;
+      background: linear-gradient(to right, var(--red), var(--orange), var(--pink), var(--purple), var(--blue));
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ─── BARRA DE PROGRESO LATERAL ─── */
+    .side-bar {
+      position: fixed;
+      top: 0; right: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--red), var(--orange), var(--pink), var(--purple), var(--blue));
+      z-index: 99;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #fff 0%, #F0EEFF 60%, #E8F4FF 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-logo {
+      height: 64px;
+      width: auto;
+      margin-bottom: 32px;
+      object-fit: contain;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: linear-gradient(to right, var(--purple), var(--blue));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 8vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      color: var(--dark);
+      max-width: 700px;
+    }
+
+    .hero h1 .grad {
+      background: linear-gradient(to right, var(--red), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.65;
+      max-width: 460px;
+      margin-bottom: 44px;
+    }
+
+    .hero-sub strong { color: var(--dark); font-weight: 800; }
+
+    .scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(139,79,168,0.45);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint svg { width: 18px; height: 18px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ─── TIPS SECTION ─── */
+    .tips-section {
+      padding: 80px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--purple);
+    }
+
+    .section-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(30px, 6vw, 44px);
+      line-height: 1.05;
+      margin-bottom: 48px;
+      color: var(--dark);
+    }
+
+    .section-title span {
+      background: linear-gradient(to right, var(--orange), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Tarjeta tip */
+    .tip-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 32px rgba(139,79,168,0.10);
+      border: 1px solid rgba(139,79,168,0.09);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 44px rgba(139,79,168,0.18);
+    }
+
+    .tip-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 32px 20px;
+    }
+
+    .tip-num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(to bottom right, var(--orange), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      flex-shrink: 0;
+    }
+
+    .tip-label-wrap { display: flex; flex-direction: column; gap: 4px; }
+
+    .tip-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple);
+      background: rgba(139,79,168,0.08);
+      padding: 3px 10px;
+      border-radius: 3px;
+      width: fit-content;
+    }
+
+    .tip-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(20px, 4vw, 26px);
+      line-height: 1.15;
+      color: var(--dark);
+    }
+
+    /* GIF */
+    .tip-gif {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tip-body-wrap {
+      padding: 24px 32px 28px;
+    }
+
+    .tip-text {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .tip-mensaje {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(229,64,106,0.07), rgba(139,79,168,0.07));
+      border-left: 4px solid var(--pink);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+    }
+
+    .tip-mensaje-icon { font-size: 1.3rem; flex-shrink: 0; }
+
+    .tip-mensaje-text {
+      font-size: 15px;
+      color: var(--dark);
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* ─── RESUMEN ─── */
+    .resumen {
+      background: linear-gradient(160deg, #1A0B2E 0%, #2D1654 50%, #1A2744 100%);
+      padding: 80px 24px;
+    }
+
+    .resumen-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .resumen .section-eyebrow { color: #C89FE0; }
+    .resumen .section-title { color: #fff; text-align: center; margin-bottom: 44px; }
+
+    .resumen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 560px) {
+      .resumen-grid { grid-template-columns: 1fr; }
+    }
+
+    .resumen-item {
+      background: rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .resumen-item:nth-child(1) { border-color: var(--orange); }
+    .resumen-item:nth-child(2) { border-color: var(--pink); }
+    .resumen-item:nth-child(3) { border-color: var(--blue); }
+
+    .resumen-num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, var(--orange), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .resumen-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .resumen-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: linear-gradient(160deg, #1A0B2E 0%, #2D1654 45%, #1A2744 100%);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--red), var(--orange), var(--pink), var(--purple), var(--blue));
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--blue), var(--purple), var(--pink), var(--orange), var(--red));
+    }
+
+    .glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(200,159,224,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section .section-eyebrow { color: #C89FE0; }
+
+    .cta-section .section-title { color: #fff; margin-bottom: 16px; }
+    .cta-section .section-title span {
+      background: linear-gradient(to right, var(--pink), var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cta-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      margin-bottom: 44px;
+    }
+
+    .btn-main {
+      display: inline-block;
+      text-decoration: none;
+      background: linear-gradient(to right, var(--pink), var(--purple), var(--blue));
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 20px 44px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(139,79,168,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 44px rgba(139,79,168,0.55);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    footer img {
+      height: 36px;
+      display: block;
+      margin: 0 auto 12px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      .tip-card-header { padding: 22px 22px 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .tip-num { font-size: 36px; }
+      .tip-body-wrap { padding: 20px 22px 24px; }
+      .section-title { text-align: left; }
+      .resumen .section-title { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rainbow"></div>
+  <div class="side-bar"></div>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <img src="img/cgc-logo.png" alt="CGC Method" class="hero-logo" />
+    <div class="hero-tag">Guía gratuita</div>
+    <h1>3 cosas que nadie te dice para mejorar tu <span class="grad">arco sin dolor</span></h1>
+    <p class="hero-sub">
+      El primero ya lo sabes. El segundo te cambia todo.<br>
+      <strong>Y el tercero… casi nadie lo practica.</strong>
+    </p>
+    <div class="scroll-hint">
+      <span>Descúbrelos</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TIPS ═══════════════ -->
+  <section class="tips-section">
+    <p class="section-eyebrow reveal">Los 3 tips</p>
+    <h2 class="section-title reveal">Aprende a <span>mover sin lastimarte</span></h2>
+
+    <!-- TIP 1 -->
+    <div class="tip-card reveal">
+      <div class="tip-card-header">
+        <div class="tip-num">01</div>
+        <div class="tip-label-wrap">
+          <span class="tip-badge">Tip 1</span>
+          <h3 class="tip-title">Calienta tu espalda y hombros (de verdad)</h3>
+        </div>
+      </div>
+      <img src="tip1.gif" alt="Calentamiento de espalda y hombros" class="tip-gif" />
+      <div class="tip-body-wrap">
+        <p class="tip-text">
+          No basta con estirar. Tienes que preparar tu caja torácica, hombros y columna
+          con movilidad suave. 5 a 10 minutos. Siempre.
+        </p>
+        <div class="tip-mensaje">
+          <span class="tip-mensaje-icon">🧠</span>
+          <span class="tip-mensaje-text">"Mover, no solo elongar."</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIP 2 -->
+    <div class="tip-card reveal">
+      <div class="tip-card-header">
+        <div class="tip-num">02</div>
+        <div class="tip-label-wrap">
+          <span class="tip-badge">Tip 2</span>
+          <h3 class="tip-title">Activa glúteos y abdomen antes de abrir</h3>
+        </div>
+      </div>
+      <img src="tip2.gif" alt="Activación de glúteos y abdomen" class="tip-gif" />
+      <div class="tip-body-wrap">
+        <p class="tip-text">
+          Esto es clave: si no activas tu core, toda la presión se va a la zona lumbar.
+          Y ahí es donde empiezan los dolores.
+        </p>
+        <div class="tip-mensaje">
+          <span class="tip-mensaje-icon">🧠</span>
+          <span class="tip-mensaje-text">"Un arco controlado siempre es más fuerte que uno profundo."</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIP 3 -->
+    <div class="tip-card reveal">
+      <div class="tip-card-header">
+        <div class="tip-num">03</div>
+        <div class="tip-label-wrap">
+          <span class="tip-badge">Tip 3 — El más importante</span>
+          <h3 class="tip-title">Aprende a ondular tu columna (no bajes en bloque)</h3>
+        </div>
+      </div>
+      <img src="tip3.gif" alt="Ondulación segmentada de la columna" class="tip-gif" />
+      <div class="tip-body-wrap">
+        <p class="tip-text">
+          Tu columna tiene la capacidad de moverse vértebra por vértebra. Esa movilidad
+          segmentada es lo que separa un arco bonito de uno doloroso. Empieza practicando
+          ondas desde el pecho hasta la pelvis.
+        </p>
+        <div class="tip-mensaje">
+          <span class="tip-mensaje-icon">🧠</span>
+          <span class="tip-mensaje-text">"Tu espalda no es un palo. Es una ola."</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════ RESUMEN ═══════════════ -->
+  <section class="resumen">
+    <div class="resumen-inner">
+      <p class="section-eyebrow reveal" style="text-align:center;">Los 3 pilares</p>
+      <h2 class="section-title reveal">Tu arco mejora cuando cuidas los <span>3 pilares</span></h2>
+      <div class="resumen-grid">
+        <div class="resumen-item reveal delay-1">
+          <div class="resumen-num">01</div>
+          <div class="resumen-label">Calor inteligente</div>
+          <div class="resumen-desc">Movilidad activa, no solo estiramientos estáticos</div>
+        </div>
+        <div class="resumen-item reveal delay-2">
+          <div class="resumen-num">02</div>
+          <div class="resumen-label">Core activo</div>
+          <div class="resumen-desc">Glúteos y abdomen protegen tu zona lumbar</div>
+        </div>
+        <div class="resumen-item reveal delay-3">
+          <div class="resumen-num">03</div>
+          <div class="resumen-label">Ola espinal</div>
+          <div class="resumen-desc">Movimiento segmentado vértebra por vértebra</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════ -->
+  <section class="cta-section">
+    <div class="glow"></div>
+    <div class="cta-inner reveal">
+      <p class="section-eyebrow">¿Lista para más?</p>
+      <h2 class="section-title">¿Te gustaría <span>entrenar así</span>?</h2>
+      <p class="cta-sub">
+        Aprende a mover tu cuerpo de forma inteligente, progresiva y sin dolor.<br>
+        Únete a Arcos 360 y transforma tu arco de verdad.
+      </p>
+      <!-- 🔗 Reemplaza el href con el link real de inscripción de Arcos 360 -->
+      <a href="https://camilagaraycoach-dotcom.github.io/cgcmethod/cgc-inscribete.html" class="btn-main" target="_blank">Inscríbete a Arcos 360</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <img src="img/cgc-logo.png" alt="CGC Method" />
+    <p>© 2026 CGC Method · Lima, Perú</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
