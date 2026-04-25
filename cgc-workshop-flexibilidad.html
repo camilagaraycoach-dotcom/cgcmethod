@@ -80,7 +80,7 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 
 .hero-content{
   position:relative;z-index:10;
-  padding:0 1.5rem 2rem;
+  padding:0 1.25rem 1.5rem;
   margin-top:auto;
 }
 
@@ -95,10 +95,10 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 
 .hero h1{
   font-family:'Sora',sans-serif;
-  font-size:3rem;font-weight:900;
+  font-size:2.6rem;font-weight:900;
   line-height:0.95;color:#fff;
   letter-spacing:-0.03em;
-  margin-bottom:0.3rem;
+  margin-bottom:0.25rem;
 }
 .hero h1 .grad{
   background:linear-gradient(135deg,var(--org),#EF4444,var(--pur));
@@ -108,8 +108,8 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 
 .hero-con{
   font-family:'Dancing Script',cursive;
-  font-size:1.5rem;font-weight:700;
-  color:rgba(255,255,255,0.85);margin-bottom:1.5rem;
+  font-size:1.35rem;font-weight:700;
+  color:rgba(255,255,255,0.85);margin-bottom:0.75rem;
 }
 .hero-con em{
   background:linear-gradient(135deg,var(--org),var(--pur));
@@ -117,27 +117,23 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
   font-style:normal;
 }
 
-/* Info chips sobre el hero */
+/* Info chips sobre el hero — fila horizontal compacta */
 .hero-chips{
-  display:flex;flex-direction:column;gap:8px;
-  margin-bottom:1.5rem;
+  display:flex;flex-direction:row;gap:6px;
+  margin-bottom:1rem;
 }
 .hero-chip{
-  display:flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,0.08);
+  display:flex;flex-direction:column;gap:2px;
+  background:rgba(255,255,255,0.1);
   backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:12px;padding:10px 14px;
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:10px;padding:8px 8px;
+  flex:1;
 }
-.chip-icon{
-  width:32px;height:32px;border-radius:8px;
-  background:linear-gradient(135deg,var(--org),var(--pur));
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.9rem;flex-shrink:0;
-}
-.chip-label{font-size:0.68rem;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
-.chip-value{font-family:'Sora',sans-serif;font-size:0.92rem;font-weight:800;color:#fff}
-.chip-sub{font-size:0.72rem;color:rgba(255,255,255,0.55)}
+.chip-icon{font-size:1.1rem;margin-bottom:1px}
+.chip-label{font-size:0.58rem;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+.chip-value{font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:800;color:#fff;line-height:1.2}
+.chip-sub{font-size:0.62rem;color:rgba(255,255,255,0.5)}
 
 /* CTA hero */
 .hero-cta{
@@ -164,14 +160,7 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 .hero-cta:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(124,58,237,0.65)}
 
 /* Scroll indicator */
-.scroll-ind{
-  position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:4px;
-  color:rgba(255,255,255,0.4);font-size:0.62rem;font-weight:600;letter-spacing:0.1em;
-  text-transform:uppercase;z-index:10;animation:bounce 2s infinite;
-}
-.scroll-ind svg{width:20px;height:20px;opacity:0.5}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-ind{display:none}
 
 /* ══════════════════════════════
    CUPOS BANNER (después del hero)
@@ -462,10 +451,6 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 
   <div class="hero-top">
     <img class="hero-logo" src="img/cgc-logo.png" alt="CGC Method">
-    <div class="hero-live-badge">
-      <span class="live-dot"></span>
-      Workshop Presencial
-    </div>
   </div>
 
   <div class="hero-content">
@@ -479,8 +464,8 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 
     <p class="hero-con">con <em>Camila Garay</em></p>
 
-    <p style="font-family:'DM Sans',sans-serif;font-size:0.88rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1.25rem">
-      Trabajaremos <strong style="color:#fff">flexibilidad y movilidad de todo el cuerpo</strong> — desde abrir las piernas hasta hacer arcos — todo con técnica progresiva, paso a paso, diseñado para <strong style="color:#fff">principiantes sin experiencia previa.</strong>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.84rem;color:rgba(255,255,255,0.75);line-height:1.5;margin-bottom:1rem">
+      De splits a arcos — <strong style="color:#fff">todo el cuerpo, con técnica progresiva</strong>, para <strong style="color:#fff">principiantes sin experiencia previa.</strong>
     </p>
 
     <div class="hero-chips">
