@@ -177,21 +177,73 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 /* RESPONSIVE */
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-img{height:55vw;min-height:240px;order:-1}
+  .hero-img{height:65vw;min-height:300px;order:-1}
+  .hero-img img{object-position:center top}
   .hero-img::after{background:linear-gradient(to bottom,transparent 40%,var(--bg) 100%)}
   .pain-grid{grid-template-columns:1fr}
   .mod-grid{grid-template-columns:1fr}
   .testi-grid{grid-template-columns:1fr}
   .packs-grid{grid-template-columns:1fr 1fr}
-  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto!important}
+  .mc{min-height:220px}
   .mc.r2,.mc.c2{grid-row:span 1;grid-column:span 1}
   .gallery-head{flex-direction:column;align-items:flex-start}
   .stat-line .w-white,.stat-line .w-grad{font-size:clamp(2.5rem,7vw,5rem)}
   .stat-line .w-gray{font-size:clamp(1.8rem,5vw,3.5rem)}
+  .about-overlay{justify-content:center}
+  .about-box{max-width:100%}
 }
 @media(max-width:540px){
+  /* Hero */
+  .hero-img{height:75vw;min-height:320px}
+  .hero-txt{padding:2rem 1.4rem 2.5rem}
+  .hero-label{margin-bottom:1rem}
+  .hero-h .huge{font-size:clamp(4rem,20vw,5.5rem)}
+  .hero-h .sub{font-size:clamp(2.5rem,13vw,3.5rem)}
+  .hero-desc{font-size:1rem;max-width:100%;margin-top:1.2rem}
+  .hero-btns{flex-direction:column;gap:.7rem;margin-top:1.6rem}
+  .btn-cta,.btn-sec{width:100%;justify-content:center;padding:1rem}
+
+  /* About */
+  .about-sec{min-height:auto}
+  .about-bg img{object-position:center top;filter:brightness(.45)}
+  .about-overlay{align-items:flex-end;padding:52vw 1.4rem 2.5rem;justify-content:flex-start}
+  .about-box h2 .l1{font-size:clamp(2rem,8vw,3rem)}
+  .about-box h2 .l2{font-size:clamp(2.5rem,10vw,3.5rem)}
+  .about-box h2 .l3{font-size:clamp(1.6rem,6.5vw,2.5rem)}
+  .stats-row{flex-wrap:wrap;gap:1.2rem}
+
+  /* Galería */
+  .mosaic{grid-template-columns:1fr!important;grid-template-rows:auto!important}
+  .mc{min-height:280px}
+  .gallery-head{padding:0 1.4rem}
+
+  /* Pain / secciones con padding lateral */
+  .pain-sec,.includes-sec,.testi-sec{padding-left:1.4rem;padding-right:1.4rem}
+  .pain-card{padding:1.5rem}
+  .ed-h{font-size:clamp(2.2rem,10vw,3.5rem)}
+
+  /* Statement */
+  .statement{padding:3rem 1.4rem}
+  .stat-line .w-white,.stat-line .w-grad{font-size:clamp(2rem,9vw,3.5rem)}
+  .stat-line .w-gray{font-size:clamp(1.5rem,6.5vw,2.5rem)}
+
+  /* Módulos */
+  .mod{padding:1.8rem 1.4rem}
+
+  /* Paquetes */
   .packs-grid{grid-template-columns:1fr}
-  .fab{bottom:1.2rem;right:1.2rem;padding:.8rem 1.4rem;font-size:.78rem}
+  .packs-inner{padding-left:1.4rem;padding-right:1.4rem}
+
+  /* CTA final */
+  .cta-btns{flex-direction:column;align-items:stretch;gap:.7rem}
+  .cta-btns .btn-cta,.cta-btns .btn-sec{width:100%;justify-content:center}
+  .cta-sec{padding-left:1.4rem;padding-right:1.4rem}
+  .cta-h .l1{font-size:clamp(3rem,13vw,5rem)}
+  .cta-h .l2{font-size:clamp(2.2rem,10vw,4rem)}
+
+  /* FAB */
+  .fab{bottom:1rem;right:1rem;padding:.85rem 1.5rem;font-size:.8rem}
 }
 </style>
 </head>
