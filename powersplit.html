@@ -46,16 +46,16 @@ body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;fon
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* HERO */
-.hero{min-height:100dvh;display:grid;grid-template-columns:1fr 1fr;background:var(--bg);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(ellipse,rgba(79,146,255,.15) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero{min-height:100dvh;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#0b0b0b 45%,#100814 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-150px;left:-150px;width:900px;height:900px;background:radial-gradient(ellipse,rgba(159,90,247,.22) 0%,rgba(79,146,255,.1) 40%,transparent 70%);pointer-events:none;z-index:0}
 .hero-img{position:relative;overflow:hidden}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:brightness(.7)}
 .hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 35%);pointer-events:none}
 .hero-txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,7vw,6rem) clamp(2rem,5vw,5rem);position:relative;z-index:2}
 .hero-label{font-size:.6rem;letter-spacing:.45em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:1.5rem;opacity:0;animation:up .6s ease forwards .1s}
 .hero-h{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.02em;color:var(--white);opacity:0;animation:up .7s ease forwards .25s}
-.hero-h .huge{font-size:clamp(5rem,12vw,9.5rem);display:block}
-.hero-h .sub{font-size:clamp(3rem,7vw,5.5rem);display:block;font-style:italic}
+.hero-h .huge{font-size:clamp(5rem,13vw,10.5rem);display:block;letter-spacing:-.04em}
+.hero-h .sub{font-size:clamp(3rem,8vw,6.5rem);display:block;font-style:italic;letter-spacing:-.02em}
 .hero-desc{margin-top:1.8rem;font-size:clamp(.95rem,1.4vw,1.05rem);color:var(--gray);line-height:1.65;max-width:380px;opacity:0;animation:up .7s ease forwards .4s}
 .hero-desc strong{color:var(--white);font-weight:500}
 .hero-btns{margin-top:2.2rem;display:flex;gap:.9rem;flex-wrap:wrap;opacity:0;animation:up .7s ease forwards .55s}
@@ -257,7 +257,7 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
     position:relative;
     z-index:2;
     padding:2.2rem 1.4rem 1.6rem;
-    background:var(--bg);
+    background:linear-gradient(160deg,#120a1a 0%,#0b0b0b 60%);
   }
 
   /* Fotos apiladas verticalmente en mobile */
@@ -298,13 +298,13 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 
   /* Tipografía hero */
   .hero-label{
-    font-size:.55rem;letter-spacing:.35em;
-    margin-bottom:.65rem;
+    font-size:.6rem;letter-spacing:.32em;
+    margin-bottom:.75rem;
     opacity:1!important;animation:none!important;
   }
   .hero-h{opacity:1!important;animation:none!important}
-  .hero-h .huge{font-size:clamp(3.8rem,19vw,5.5rem)}
-  .hero-h .sub{font-size:clamp(2.4rem,12vw,3.8rem)}
+  .hero-h .huge{font-size:clamp(4.2rem,21vw,6rem)}
+  .hero-h .sub{font-size:clamp(2.6rem,14vw,4.2rem)}
   .hero-desc{
     font-size:.87rem;max-width:100%;
     margin-top:.75rem;
@@ -503,7 +503,7 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-txt">
-    <span class="hero-label">CGC Method · Splits & Flexibilidad</span>
+    <span class="hero-label gr" style="-webkit-text-fill-color:transparent;background-clip:text;-webkit-background-clip:text;background-image:linear-gradient(90deg,#FF2D55,#FF7B00,#9F5AF7)">CGC Method · Splits & Flexibilidad</span>
     <h1 class="hero-h">
       <span class="huge">POWER</span>
       <span class="sub gr">SPLIT</span>
@@ -576,7 +576,7 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 </div>
 
 <!-- DOLOR -->
-<section class="pain-sec">
+<section class="pain-sec" style="background:linear-gradient(160deg,#0e0c18 0%,#0b0b0b 70%);max-width:100%;padding-left:clamp(1.5rem,6vw,5rem);padding-right:clamp(1.5rem,6vw,5rem)">
   <div class="rv">
     <div class="lbl">¿Te suena familiar?</div>
     <h2 class="ed-h">EL PROBLEMA<br><em class="gr">NO ERES TÚ.</em></h2>
@@ -699,7 +699,7 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 <div class="div"></div>
 
 <!-- INCLUYE -->
-<section class="includes-sec">
+<section class="includes-sec" style="background:linear-gradient(160deg,#0b0b0b 0%,#100d0a 100%);max-width:100%;padding-left:clamp(1.5rem,6vw,5rem);padding-right:clamp(1.5rem,6vw,5rem)">
   <div class="rv">
     <div class="lbl">Lo que obtienes</div>
     <h2 class="ed-h" style="margin-bottom:0">TODO EN<br><em class="gr">UN LUGAR.</em></h2>
@@ -729,7 +729,7 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 <div class="div"></div>
 
 <!-- TESTIMONIOS -->
-<section class="testi-sec">
+<section class="testi-sec" style="background:linear-gradient(160deg,#0e0c18 0%,#0b0b0b 70%);max-width:100%;padding-left:clamp(1.5rem,6vw,5rem);padding-right:clamp(1.5rem,6vw,5rem)">
   <div class="rv">
     <div class="lbl">Sus propias palabras</div>
     <h2 class="ed-h" style="margin-bottom:0">ESTO LO<br><em class="gr">DIJERON ELLOS.</em></h2>
