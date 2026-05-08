@@ -260,41 +260,33 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
     background:var(--bg);
   }
 
-  /* Slider → strip deslizable horizontal en mobile */
+  /* Fotos apiladas verticalmente en mobile */
   .hero-slider{
     order:2;
     position:relative!important;
     inset:unset!important;
     z-index:1;
     height:auto!important;
-    overflow-x:auto!important;
-    overflow-y:hidden;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    padding:0 0 0 1.2rem;
+    overflow:visible!important;
+    padding:0;
   }
-  .hero-slider::-webkit-scrollbar{display:none}
   .hs-track{
     display:flex!important;
-    flex-wrap:nowrap!important;
+    flex-direction:column!important;
     height:auto!important;
-    gap:8px;
-    padding-right:1.2rem;
+    gap:3px;
     transition:none!important;
   }
   .hs-slide{
-    min-width:78vw!important;
+    min-width:100%!important;
     flex-shrink:0;
-    scroll-snap-align:start;
     aspect-ratio:1100/557;
     min-height:unset;
-    border-radius:12px;
     overflow:hidden;
   }
   .hs-slide img{height:100%;filter:brightness(.82)}
   .hs-slide::after{
-    background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)!important;
+    background:linear-gradient(to top,rgba(0,0,0,.45) 0%,transparent 55%)!important;
   }
   .hs-badge{
     bottom:.8rem!important;
