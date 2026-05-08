@@ -369,33 +369,32 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
   .si-num{font-size:1.8rem}
   .si-lbl{font-size:.58rem}
 
-  /* === GALERÍA – scroll horizontal === */
-  .gallery-sec{padding:3rem 0}
-  .gallery-head{padding:0 1.4rem;margin-bottom:1.5rem;flex-direction:column;align-items:flex-start}
+  /* === GALERÍA – grid 2 columnas === */
+  .gallery-sec{padding:2.5rem 0}
+  .gallery-head{padding:0 1.4rem;margin-bottom:1.2rem;flex-direction:column;align-items:flex-start}
   .gallery-head h2{font-size:clamp(2rem,8vw,3rem)}
   .gallery-head p{display:none}
   .mosaic{
-    display:flex!important;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    gap:4px;
-    padding:0 1.4rem;
-    scrollbar-width:none;
-    grid-template-columns:unset!important;
-    grid-template-rows:unset!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    grid-template-rows:auto!important;
+    gap:3px;
+    padding:0;
+    overflow:visible;
   }
-  .mosaic::-webkit-scrollbar{display:none}
   .mc{
-    min-width:78vw;
-    min-height:44vw!important;
-    flex-shrink:0;
-    scroll-snap-align:start;
-    border-radius:12px;
-    overflow:hidden;
-    aspect-ratio:16/9;
+    min-width:unset;
+    width:100%;
+    aspect-ratio:1/1;
+    min-height:unset!important;
+    border-radius:0;
+    flex-shrink:unset;
+    scroll-snap-align:unset;
   }
-  .mc.r2,.mc.c2{min-width:72vw;grid-row:unset;grid-column:unset}
+  /* Primera foto: ocupa todo el ancho como portada */
+  .mc.r2{grid-column:span 2!important;grid-row:span 1!important;aspect-ratio:16/9!important}
+  /* Ancho normal para c2 en mobile */
+  .mc.c2{grid-column:span 1!important}
 
   /* === ANTES/DESPUÉS === */
   section.rv[style*="max-width:1200px"]{padding-left:1.4rem!important;padding-right:1.4rem!important}
@@ -472,6 +471,11 @@ footer p{font-size:.7rem;color:var(--gray);letter-spacing:.08em}
 
   /* === CTA FINAL === */
   .antes-sec{padding-left:1rem!important;padding-right:1rem!important;padding-top:2.5rem!important;padding-bottom:2.5rem!important}
+  /* Reducir altura de fotos antes/después */
+  .antes-sec .rv-l img,.antes-sec .rv-r img{height:46vw!important;object-fit:cover}
+  .antes-sec .rv-l,.antes-sec .rv-r{overflow:hidden}
+  /* Labels más compactos */
+  .antes-sec [style*="position:absolute"]{font-size:.62rem!important;padding:.28rem .7rem!important}
   .cta-sec{padding:4rem 1.4rem}
   .cta-h .l1{font-size:clamp(3rem,14vw,5rem)}
   .cta-h .l2{font-size:clamp(2.4rem,11vw,4.2rem)}
