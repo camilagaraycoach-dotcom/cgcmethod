@@ -497,6 +497,42 @@
       opacity: 0.6;
     }
 
+    /* ─── BOTÓN FLOTANTE WHATSAPP ─── */
+    .float-cta {
+      position: fixed;
+      left: 16px; right: 16px;
+      bottom: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(140%);
+      transition: opacity .35s ease, transform .35s ease;
+      pointer-events: none;
+    }
+    .float-cta.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .float-cta a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 440px;
+      text-decoration: none;
+      background: linear-gradient(to right, var(--pink), var(--purple), var(--blue));
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+      padding: 15px 22px;
+      border-radius: 40px;
+      box-shadow: 0 8px 26px rgba(139,79,168,0.45);
+    }
+    .float-cta a:active { transform: scale(0.98); }
+    .float-cta svg { width: 20px; height: 20px; flex-shrink: 0; }
+
     @media (max-width: 600px) {
       /* HERO */
       .hero { padding: 64px 22px 48px; }
@@ -691,8 +727,8 @@
       <h2 class="section-title">No lo hagas <span>sola</span></h2>
       <p class="cta-sub">
         Estos 3 pilares funcionan mejor cuando alguien te guía paso a paso.<br>
-        En mis clases online de CGC Method entrenamos movilidad, fuerza y
-        flexibilidad con un plan progresivo y seguro.
+        En CGC Method, mi equipo y yo damos clases online donde entrenamos
+        movilidad, fuerza y flexibilidad con un plan progresivo y seguro.
       </p>
       <ul class="cta-perks">
         <li><span class="check">✓</span> Clases en vivo desde donde estés</li>
@@ -712,6 +748,14 @@
     <p>© 2026 CGC Method · Lima, Perú</p>
   </footer>
 
+  <!-- ═══════════════ BOTÓN FLOTANTE WHATSAPP ═══════════════ -->
+  <div class="float-cta" id="floatCta">
+    <a href="https://wa.me/51954655122?text=Hola!%20Quiero%20inscribirme%20en%20clases%20CGC%20Method%20con%20el%20m%C3%A9todo%20de%20Camila%20Garay" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+      <span>Quiero entrenar con CGC Method</span>
+    </a>
+  </div>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -720,6 +764,26 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Botón flotante: aparece al pasar el hero, se oculta al llegar al CTA final
+    const floatCta = document.getElementById('floatCta');
+    const heroEl = document.querySelector('.hero');
+    const finalCta = document.querySelector('.cta-section');
+    let ctaInView = false;
+
+    new IntersectionObserver((entries) => {
+      ctaInView = entries[0].isIntersecting;
+      updateFloat();
+    }, { threshold: 0.25 }).observe(finalCta);
+
+    function updateFloat() {
+      const pastHero = window.scrollY > heroEl.offsetHeight * 0.55;
+      if (pastHero && !ctaInView) floatCta.classList.add('show');
+      else floatCta.classList.remove('show');
+    }
+
+    window.addEventListener('scroll', updateFloat, { passive: true });
+    updateFloat();
   </script>
 
 </body>
