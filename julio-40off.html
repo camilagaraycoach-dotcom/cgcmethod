@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SOLO 3 DÍAS — 40% OFF Clases Grupales CGC Method</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F7FF;--card:#FFFFFF;--t:#111827;--ts:#6B7280;--tm:#9CA3AF;--ps:#F59E0B;--ar:#3B82F6;--pr:#10B981;--pur:#8B5CF6;--red:#EF4444}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{position:relative;background:#060612;overflow:hidden;padding-bottom:3rem}
+
+.hero-photo-bg{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:2px}
+.hero-photo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(0.3) brightness(0.28)}
+.hero-photo-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(6,6,18,0.7) 0%,rgba(6,6,18,0.55) 50%,rgba(6,6,18,0.75) 100%)}
+
+.hero-orb{position:absolute;border-radius:50%;z-index:1;pointer-events:none}
+.hero-orb-1{width:340px;height:340px;background:radial-gradient(circle,rgba(16,185,129,0.28) 0%,transparent 70%);top:-120px;left:-120px;animation:orbDrift 7s ease-in-out infinite}
+.hero-orb-2{width:280px;height:280px;background:radial-gradient(circle,rgba(245,158,11,0.2) 0%,transparent 70%);bottom:60px;right:-90px;animation:orbDrift 9s ease-in-out infinite reverse}
+.hero-orb-3{width:180px;height:180px;background:radial-gradient(circle,rgba(239,68,68,0.18) 0%,transparent 70%);top:40%;left:60%;animation:orbDrift 11s ease-in-out infinite 2s}
+@keyframes orbDrift{0%,100%{transform:translate(0,0)}33%{transform:translate(18px,-22px)}66%{transform:translate(-12px,16px)}}
+
+.hero-grid{position:absolute;inset:0;z-index:1;opacity:0.05;background-image:linear-gradient(rgba(16,185,129,1) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,1) 1px,transparent 1px);background-size:48px 48px}
+
+.hero-scanline{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,0.6),rgba(245,158,11,0.6),transparent);z-index:2;animation:scanMove 4s ease-in-out infinite}
+@keyframes scanMove{0%{top:20%;opacity:0}20%{opacity:1}80%{opacity:1}100%{top:80%;opacity:0}}
+
+.hero-content{position:relative;z-index:3;padding:2.5rem 1.5rem 2rem;text-align:center}
+.hero-logo{width:72px;margin-bottom:1.25rem;filter:brightness(0) invert(1);opacity:0.8}
+
+.cyber-eyebrow{font-family:'Sora',sans-serif;font-size:0.68rem;font-weight:800;letter-spacing:6px;text-transform:uppercase;color:#34D399;text-shadow:0 0 16px rgba(52,211,153,0.9);margin-bottom:0.6rem}
+
+.discount-hero{font-family:'Sora',sans-serif;font-size:5.5rem;font-weight:800;line-height:0.88;background:linear-gradient(135deg,#10B981 0%,#F59E0B 50%,#EF4444 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 24px rgba(16,185,129,0.35));margin-bottom:0.1rem}
+.discount-hero-sub{font-family:'Sora',sans-serif;font-size:1.35rem;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:1rem}
+
+.product-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
+.chip{font-family:'Sora',sans-serif;font-size:0.75rem;font-weight:700;padding:6px 14px;border-radius:100px;border:1.5px solid;white-space:nowrap}
+.chip-green{color:#34D399;border-color:rgba(52,211,153,0.4);background:rgba(52,211,153,0.08)}
+
+.hero-deadline{font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:1px;margin-bottom:1.25rem;text-transform:uppercase}
+.hero-deadline span{color:#34D399;text-shadow:0 0 10px rgba(52,211,153,0.5)}
+
+.countdown{display:flex;gap:8px;justify-content:center;margin-bottom:2rem}
+.cd-block{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 10px 8px;min-width:58px;text-align:center;position:relative;overflow:hidden}
+.cd-block::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,185,129,0.08) 0%,transparent 100%)}
+.cd-num{font-family:'Sora',sans-serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1;display:block;text-shadow:0 0 12px rgba(16,185,129,0.5)}
+.cd-lbl{font-size:0.55rem;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;margin-top:3px;display:block}
+.cd-sep{font-family:'Sora',sans-serif;font-size:1.9rem;font-weight:800;color:rgba(245,158,11,0.5);align-self:center;margin-top:-10px;text-shadow:0 0 8px rgba(245,158,11,0.4)}
+
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:1rem;padding:15px 34px;border-radius:100px;text-decoration:none;box-shadow:0 0 0 0 rgba(16,185,129,0.4),0 8px 30px rgba(16,185,129,0.35);transition:all 0.3s;animation:ctaPulse 2.5s ease-in-out infinite}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4),0 8px 30px rgba(16,185,129,0.35)}50%{box-shadow:0 0 0 10px rgba(16,185,129,0),0 8px 30px rgba(16,185,129,0.5)}}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 0 0 0 transparent,0 14px 40px rgba(16,185,129,0.6)}
+
+.urgency{background:linear-gradient(135deg,#10B981,#059669);color:#fff;text-align:center;padding:11px 1.5rem;font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:800;letter-spacing:0.5px}
+
+/* ── Layout ── */
+.section{padding:1.5rem 1.5rem 0.5rem;max-width:480px;margin:0 auto}
+.section-title{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;text-align:center;margin-bottom:0.4rem;line-height:1.25}
+.section-sub{font-size:0.9rem;color:var(--ts);text-align:center;margin-bottom:1.25rem;line-height:1.5}
+
+.products{padding:0 1.5rem 0.5rem;max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+
+.prod-card{background:#fff;border:2px solid rgba(0,0,0,0.08);border-radius:22px;padding:1.5rem;box-shadow:0 2px 14px rgba(0,0,0,0.07);position:relative;overflow:hidden}
+.prod-card.grupales{border-color:#10B981;box-shadow:0 4px 24px rgba(16,185,129,0.15)}
+
+.ribbon{position:absolute;top:0;right:0;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:800;padding:8px 20px 8px 28px;border-radius:0 20px 0 30px;clip-path:polygon(12% 0%,100% 0%,100% 100%,0% 100%)}
+
+.prod-icon{font-size:2.2rem;margin-bottom:0.5rem;display:block}
+.prod-name{font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:800;margin-bottom:3px}
+.prod-name.green{color:#059669}
+.prod-tagline{font-size:0.83rem;color:var(--ts);margin-bottom:1rem;line-height:1.4}
+
+.price-plans{display:flex;flex-direction:column;gap:8px;margin-bottom:1rem}
+.price-plan-row{display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.025);border-radius:10px;padding:10px 12px}
+.price-plan-name{font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:700;color:#374151}
+.price-plan-prices{display:flex;align-items:center;gap:8px}
+.price-plan-orig{font-size:0.8rem;color:var(--tm);text-decoration:line-through;font-weight:500}
+.price-plan-new{font-family:'Sora',sans-serif;font-size:1rem;font-weight:800}
+
+.prod-features{list-style:none;margin-bottom:1.25rem}
+.prod-features li{font-size:0.86rem;color:#374151;padding:5px 0;display:flex;align-items:flex-start;gap:9px;border-bottom:1px solid rgba(0,0,0,0.04);line-height:1.4}
+.prod-features li:last-child{border-bottom:none}
+.prod-features li .ico{flex-shrink:0;font-size:0.95rem;margin-top:1px}
+
+.prod-btn{display:block;width:100%;text-align:center;padding:15px;border-radius:14px;font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;text-decoration:none;transition:all 0.3s;color:#fff}
+.prod-btn.green-grad{background:linear-gradient(135deg,#10B981,#059669)}
+.prod-btn.green-grad:hover{box-shadow:0 8px 25px rgba(16,185,129,0.45);transform:translateY(-2px)}
+
+/* ── Steps ── */
+.steps-wrap{padding:0 1.5rem 1rem;max-width:480px;margin:0 auto}
+.step-row{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-lbl{font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:700;color:#111827}
+.step-desc{font-size:0.82rem;color:var(--ts);line-height:1.4;margin-top:2px}
+
+/* ── FAQ ── */
+.faq-section{padding:1.5rem;max-width:480px;margin:0 auto}
+.faq-item{border:1.5px solid rgba(0,0,0,0.08);border-radius:14px;margin-bottom:10px;overflow:hidden;background:#fff}
+.faq-q{width:100%;text-align:left;padding:14px 16px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:#111827}
+.faq-q .faq-icon{font-size:1rem;flex-shrink:0;transition:transform 0.3s;color:#10B981}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease;font-size:0.83rem;color:#4B5563;line-height:1.6;padding:0 16px}
+.faq-item.open .faq-a{max-height:200px;padding:0 16px 14px}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:1.5rem;border-top:3px solid transparent;border-image:linear-gradient(90deg,#10B981,#F59E0B,#EF4444,#3B82F6,#8B5CF6) 1}
+.footer-brand{font-size:10px;color:var(--tm);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* ── Animaciones scroll ── */
+.anim-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1)}
+.anim-up.vis{opacity:1;transform:none}
+.anim-fade{opacity:0;transition:opacity 0.7s ease}
+.anim-fade.vis{opacity:1}
+.anim-scale{opacity:0;transform:scale(0.92) translateY(20px);transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.22,1,0.36,1)}
+.anim-scale.vis{opacity:1;transform:scale(1) translateY(0)}
+.anim-left{opacity:0;transform:translateX(-30px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1)}
+.anim-left.vis{opacity:1;transform:none}
+.anim-right{opacity:0;transform:translateX(30px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1)}
+.anim-right.vis{opacity:1;transform:none}
+.anim-pop{opacity:0;transform:scale(0.6);transition:opacity 0.4s ease,transform 0.45s cubic-bezier(0.34,1.56,0.64,1)}
+.anim-pop.vis{opacity:1;transform:scale(1)}
+
+/* ── WhatsApp flotante ── */
+.wsp-btn{position:fixed;bottom:24px;right:20px;z-index:999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:700;padding:13px 18px 13px 14px;border-radius:100px;text-decoration:none;box-shadow:0 6px 28px rgba(37,211,102,0.45);transition:all 0.3s;animation:wspPulse 3s ease-in-out infinite}
+.wsp-btn svg{width:22px;height:22px;flex-shrink:0}
+.wsp-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 36px rgba(37,211,102,0.6)}
+@keyframes wspPulse{0%,100%{box-shadow:0 6px 28px rgba(37,211,102,0.45)}50%{box-shadow:0 6px 28px rgba(37,211,102,0.45),0 0 0 8px rgba(37,211,102,0.12)}}
+
+/* ── Mobile ── */
+@media (max-width:400px){
+  .discount-hero{font-size:4rem}
+  .discount-hero-sub{font-size:1.1rem}
+  .countdown{gap:5px}
+  .cd-block{min-width:46px;padding:8px 5px 6px}
+  .cd-num{font-size:1.45rem}
+  .cd-sep{font-size:1.45rem}
+  .chip{font-size:0.68rem;padding:5px 10px}
+  .urgency{font-size:0.75rem;padding:10px 1rem}
+  .ribbon{font-size:0.8rem;padding:6px 14px 6px 20px}
+  .prod-card{padding:1.2rem}
+  .price-plan-name{font-size:0.76rem}
+  .price-plan-new{font-size:0.92rem}
+  .section-title{font-size:1.2rem}
+  .hero-content{padding:2rem 1.2rem 1.5rem}
+}
+@media (max-width:340px){
+  .discount-hero{font-size:3.4rem}
+  .cd-block{min-width:40px;padding:7px 4px 5px}
+  .cd-num{font-size:1.25rem}
+  .cd-lbl{font-size:0.48rem}
+  .countdown{gap:3px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-photo-bg">
+    <img src="img/grupales1.png" alt="">
+    <img src="img/grupales2.png" alt="">
+    <img src="img/grupales3.png" alt="">
+    <img src="img/grupales2.png" alt="">
+    <img src="img/grupales3.png" alt="">
+    <img src="img/grupales1.png" alt="">
+  </div>
+  <div class="hero-photo-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-scanline"></div>
+
+  <div class="hero-content">
+    <img class="hero-logo" src="https://camilagaraycoach-dotcom.github.io/cgcmethod/img-logo.png" onerror="this.style.display='none'" alt="CGC Method">
+
+    <div class="cyber-eyebrow">⚡ &nbsp;SOLO 3 DÍAS&nbsp; ⚡</div>
+
+    <div class="discount-hero">40%<br>OFF</div>
+    <div class="discount-hero-sub">en Clases Grupales Online</div>
+
+    <div class="product-chips">
+      <span class="chip chip-green">👥 Powersplit · Arcos360 · Prep. Física</span>
+    </div>
+
+    <div class="hero-deadline">Oferta válida del 6 al <span>8 de julio</span></div>
+
+    <!-- Countdown -->
+    <div class="countdown">
+      <div class="cd-block"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">días</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">horas</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">min</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">seg</span></div>
+    </div>
+
+    <a class="hero-cta" href="https://camilagaraycoach.com/collections/frontpage" target="_blank" rel="noopener">
+      🔥 Aprovechar 40% OFF
+    </a>
+  </div>
+</div>
+
+<!-- Urgency strip -->
+<div class="urgency">🔥 SOLO 3 DÍAS — Descuento termina el 8 de julio a medianoche</div>
+
+<!-- ══ PRODUCTO ══════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title anim-up">¿Qué incluye la oferta?</div>
+  <div class="section-sub anim-fade">40% de descuento en todos los paquetes de clases grupales online</div>
+</div>
+
+<div class="products">
+
+  <!-- CLASES GRUPALES -->
+  <div class="prod-card grupales anim-scale">
+    <div class="ribbon">−40%</div>
+    <span class="prod-icon">👥</span>
+    <div class="prod-name green">Clases Grupales Online</div>
+    <div class="prod-tagline">Con el equipo de entrenadores CGC Method · Flexibilidad, técnica y movilidad en vivo</div>
+    <div class="anim-left" style="display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,0.08);border:1.5px solid rgba(16,185,129,0.25);border-radius:10px;padding:7px 12px;margin-bottom:12px;font-size:0.8rem;color:#065F46;font-weight:700">🏅 Dictadas por el equipo CGC Method de entrenadores especializados</div>
+
+    <!-- Clases disponibles -->
+    <div style="margin-bottom:12px">
+      <div style="font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#059669;margin-bottom:8px">Clases disponibles</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div class="anim-left" style="display:flex;align-items:center;gap:10px;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:10px;padding:9px 12px">
+          <span style="font-size:1.2rem">🦵</span>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:800;color:#065F46">Powersplit</div>
+            <div style="font-size:0.75rem;color:#6B7280;margin-top:1px">Flexibilidad de piernas y splits con técnica y progresión</div>
+          </div>
+        </div>
+        <div class="anim-left" style="display:flex;align-items:center;gap:10px;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.18);border-radius:10px;padding:9px 12px">
+          <span style="font-size:1.2rem">🌀</span>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:800;color:#1D4ED8">Arcos360</div>
+            <div style="font-size:0.75rem;color:#6B7280;margin-top:1px">Backbend, arcos y movilidad de columna de forma segura y progresiva</div>
+          </div>
+        </div>
+        <div class="anim-left" style="display:flex;align-items:center;gap:10px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:10px;padding:9px 12px">
+          <span style="font-size:1.2rem">💃</span>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:800;color:#92400E">Preparación Física para Bailarines</div>
+            <div style="font-size:0.75rem;color:#6B7280;margin-top:1px">Fuerza, movilidad y técnica para elevar tu rendimiento en la danza</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Foto strip -->
+    <div style="display:flex;gap:8px;overflow-x:auto;margin-bottom:14px;scrollbar-width:none;-ms-overflow-style:none;border-radius:12px">
+      <img src="img/grupales1.png" alt="Clase grupal CGC Method online" style="height:130px;width:auto;border-radius:12px;object-fit:cover;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,0.15)">
+      <img src="img/grupales2.png" alt="Clase grupal CGC Method online" style="height:130px;width:auto;border-radius:12px;object-fit:cover;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,0.15)">
+      <img src="img/grupales3.png" alt="Clase grupal CGC Method online" style="height:130px;width:auto;border-radius:12px;object-fit:cover;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,0.15)">
+    </div>
+
+    <!-- Pricing plans -->
+    <div style="font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#059669;margin-bottom:8px">Elige tu paquete</div>
+    <div class="price-plans">
+      <div class="price-plan-row anim-left">
+        <div class="price-plan-name">🌱 1 clase</div>
+        <div class="price-plan-prices">
+          <span class="price-plan-orig">$9</span>
+          <span class="price-plan-new" style="color:#059669">$5.40 <span style="font-size:0.7rem;font-weight:600;color:var(--ts)">USD</span></span>
+        </div>
+      </div>
+      <div class="price-plan-row anim-left">
+        <div class="price-plan-name">🎯 4 clases</div>
+        <div class="price-plan-prices">
+          <span class="price-plan-orig">$27</span>
+          <span class="price-plan-new" style="color:#059669">$16.20 <span style="font-size:0.7rem;font-weight:600;color:var(--ts)">USD</span></span>
+        </div>
+      </div>
+      <div class="price-plan-row anim-left" style="background:rgba(16,185,129,0.06);border:1.5px solid rgba(16,185,129,0.3)">
+        <div class="price-plan-name">🔥 8 clases <span style="font-size:0.65rem;background:#10B981;color:#fff;padding:2px 7px;border-radius:6px;margin-left:4px">MÁS POPULAR</span></div>
+        <div class="price-plan-prices">
+          <span class="price-plan-orig">$48</span>
+          <span class="price-plan-new" style="color:#059669">$28.80 <span style="font-size:0.7rem;font-weight:600;color:var(--ts)">USD</span></span>
+        </div>
+      </div>
+      <div class="price-plan-row anim-left">
+        <div class="price-plan-name">🚀 12 clases</div>
+        <div class="price-plan-prices">
+          <span class="price-plan-orig">$63</span>
+          <span class="price-plan-new" style="color:#059669">$37.80 <span style="font-size:0.7rem;font-weight:600;color:var(--ts)">USD</span></span>
+        </div>
+      </div>
+      <div class="price-plan-row anim-left">
+        <div class="price-plan-name">💪 20 clases</div>
+        <div class="price-plan-prices">
+          <span class="price-plan-orig">$99</span>
+          <span class="price-plan-new" style="color:#059669">$59.40 <span style="font-size:0.7rem;font-weight:600;color:var(--ts)">USD</span></span>
+        </div>
+      </div>
+      <div class="price-plan-row anim-left">
+        <div class="price-plan-name">💎 32 clases</div>
+        <div class="price-plan-prices">
+          <span class="price-plan-orig">$196</span>
+          <span class="price-plan-new" style="color:#059669">$117.60 <span style="font-size:0.7rem;font-weight:600;color:var(--ts)">USD</span></span>
+        </div>
+      </div>
+    </div>
+
+    <ul class="prod-features">
+      <li><span class="ico">🎥</span>Clases en vivo por Zoom — entrenas desde donde estés</li>
+      <li><span class="ico">📅</span>Horarios fijos semanales para crear el hábito</li>
+      <li><span class="ico">🌍</span>Comunidad online de alumnas de todo el mundo</li>
+      <li><span class="ico">🎯</span>Apta para todos los niveles y edades</li>
+    </ul>
+    <a class="prod-btn green-grad" href="https://camilagaraycoach.com/collections/frontpage" target="_blank" rel="noopener">Ver clases grupales con 40% OFF →</a>
+  </div>
+
+</div>
+
+<!-- ══ CÓMO FUNCIONA ══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title anim-up" style="margin-bottom:1rem">¿Cómo aprovecho el descuento?</div>
+</div>
+<div class="steps-wrap">
+  <div class="step-row">
+    <div class="step-num anim-pop">1</div>
+    <div class="anim-right">
+      <div class="step-lbl">Haz click en el botón</div>
+      <div class="step-desc">Selecciona el paquete de clases grupales que quieres y ve a nuestra tienda.</div>
+    </div>
+  </div>
+  <div class="step-row">
+    <div class="step-num anim-pop">2</div>
+    <div class="anim-right">
+      <div class="step-lbl">Completa tu compra</div>
+      <div class="step-desc">Paga de forma segura en Shopify con tarjeta de crédito o débito. El precio ya incluye el 40% de descuento.</div>
+    </div>
+  </div>
+  <div class="step-row">
+    <div class="step-num anim-pop">3</div>
+    <div class="anim-right">
+      <div class="step-lbl">¡Listo! Te contactamos</div>
+      <div class="step-desc">Recibirás un mensaje con los próximos pasos para agendar o acceder a tus clases.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAQ ════════════════════════════════════════════════════════════════════ -->
+<div class="faq-section">
+  <div class="section-title anim-up" style="margin-bottom:0.4rem">Preguntas frecuentes</div>
+  <div class="section-sub anim-fade" style="margin-bottom:1.25rem">Todo lo que necesitas saber</div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Hasta cuándo es válido el descuento?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">El 40% de descuento es exclusivo para estos 3 días y válido hasta el 8 de julio a medianoche. Pasada esa fecha, los precios vuelven a la normalidad.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Las clases son online?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Sí. Las clases grupales incluidas en esta oferta son 100% online, en vivo por Zoom. Puedes entrenar desde cualquier lugar del mundo.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cuál es la diferencia entre los paquetes?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Todos los paquetes dan acceso a las mismas clases en vivo (Powersplit, Arcos360 y Preparación Física para Bailarines) — la diferencia es la cantidad de clases incluidas. A más clases, mejor precio por sesión.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Soy principiante, ¿puedo tomar estas clases?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">¡Absolutamente! Las clases están diseñadas para todos los niveles y edades — desde quienes nunca han entrenado flexibilidad hasta deportistas de competencia.</div>
+  </div>
+
+  <div class="faq-item anim-up">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿El pago es seguro?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Sí. El pago se realiza directamente en nuestra tienda Shopify con encriptación SSL. Aceptamos tarjetas de crédito y débito de todo el mundo.</div>
+  </div>
+</div>
+
+<!-- ══ CTA FINAL ═══════════════════════════════════════════════════════════════ -->
+<div style="padding:1rem 1.5rem 2rem;max-width:480px;margin:0 auto;text-align:center">
+  <div class="anim-scale" style="background:linear-gradient(160deg,#08150f,#0a1020);border-radius:22px;padding:2rem 1.5rem;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,0.2) 0%,transparent 70%);pointer-events:none"></div>
+    <div style="position:relative;z-index:1">
+      <div style="font-size:1.8rem;margin-bottom:0.5rem">⚡</div>
+      <div style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:0.4rem">No dejes pasar esta oferta</div>
+      <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);margin-bottom:1.25rem;line-height:1.5">El 40% de descuento termina el <strong style="color:#34D399">8 de julio</strong>.<br>Invierte en tu progreso hoy.</div>
+      <a href="https://camilagaraycoach.com/collections/frontpage" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,#10B981,#059669);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:1rem;padding:14px 32px;border-radius:100px;text-decoration:none;box-shadow:0 8px 30px rgba(16,185,129,0.4)">Comprar con 40% OFF →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-brand">CGC Method · Camila Garay Coach<br><span style="font-size:9px;opacity:0.5;">Flexibility · Acro · Dance Technique</span></div>
+</div>
+
+<!-- WhatsApp flotante -->
+<a class="wsp-btn" href="https://wa.me/51954655122?text=Hola%20Camila!%20Vi%20la%20oferta%20del%2040%25%20OFF%20en%20clases%20grupales%20y%20quisiera%20info%20%F0%9F%99%8C" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  ¿Tienes dudas? Escríbenos
+</a>
+
+<script>
+// ── Countdown hasta el 8 de julio 2026 23:59:59 hora Perú (UTC-5) ──
+function updateCountdown(){
+  const deadline = new Date('2026-07-09T04:59:59Z');
+  const now = new Date();
+  const diff = deadline - now;
+
+  if(diff <= 0){
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.textContent = '00';
+    });
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+
+  const fmt = n => String(n).padStart(2,'0');
+  const setEl = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = fmt(val); };
+
+  setEl('cd-d', d);
+  setEl('cd-h', h);
+  setEl('cd-m', m);
+  setEl('cd-s', s);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── FAQ ──
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el=>el.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── Scroll animations ──
+function initAnim(){
+  if(!window.IntersectionObserver) return;
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+
+  const animated = document.querySelectorAll('.anim-up,.anim-fade,.anim-scale,.anim-left,.anim-right,.anim-pop');
+  const groups = {};
+  animated.forEach(el=>{
+    const parent = el.parentElement;
+    const key = parent ? parent.dataset.animGroup || (parent.dataset.animGroup = String(Math.random())) : 'root';
+    if(!groups[key]) groups[key]=[];
+    groups[key].push(el);
+  });
+  Object.values(groups).forEach(group=>{
+    group.forEach((el,i)=>{
+      el.style.transitionDelay = (i * 0.08) + 's';
+      obs.observe(el);
+    });
+  });
+}
+requestAnimationFrame(()=>requestAnimationFrame(initAnim));
+</script>
+</body>
+</html>
