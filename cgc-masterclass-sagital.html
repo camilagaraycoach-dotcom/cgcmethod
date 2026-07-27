@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Domina la Enseñanza del Split Sagital — Masterclass para Entrenadores | Camila Garay</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --org:#F97316;
+  --pur:#7C3AED;
+  --pur-light:#EDE9FE;
+  --org-light:#FFF7ED;
+  --dark:#111827;
+  --mid:#6B7280;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow-x:hidden}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;inset:0;
+  background:#0a0612;
+  display:grid;
+  grid-template-rows:1fr 1fr;
+}
+.hero-bg .bg-photo{
+  overflow:hidden;position:relative;
+}
+.hero-bg .bg-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  opacity:0.7;
+}
+.hero-bg .bg-photo:first-child img{object-position:center 58%}
+.hero-bg .bg-photo:last-child img{object-position:center 22%}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(10,6,18,0.6) 0%, rgba(10,6,18,0.05) 30%, rgba(10,6,18,0.05) 55%, rgba(10,6,18,0.97) 100%),
+    linear-gradient(to right, rgba(10,6,18,0.25) 0%, transparent 70%);
+  z-index:1;
+}
+.hero-bg .bg-photo:first-child::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+}
+
+.hero-top{
+  position:absolute;top:0;left:0;right:0;
+  padding:1.25rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:10;
+  background:linear-gradient(to bottom,rgba(10,6,18,0.7),transparent);
+}
+.hero-logo{height:36px;filter:brightness(0) invert(1);opacity:0.9}
+.hero-live-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:100px;padding:5px 12px;
+  font-family:'Sora',sans-serif;font-size:0.68rem;font-weight:700;
+  color:#fff;letter-spacing:0.06em;text-transform:uppercase;
+}
+.live-dot{width:7px;height:7px;background:#F97316;border-radius:50%;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero-content{
+  position:relative;z-index:10;
+  padding:0 1.25rem 1.5rem;
+  margin-top:auto;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  color:#fff;font-family:'Sora',sans-serif;
+  font-size:0.7rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+  padding:6px 16px;border-radius:100px;margin-bottom:1rem;
+  box-shadow:0 4px 20px rgba(249,115,22,0.4);
+}
+
+.hero h1{
+  font-family:'Sora',sans-serif;
+  font-size:2.35rem;font-weight:900;
+  line-height:0.98;color:#fff;
+  letter-spacing:-0.03em;
+  margin-bottom:0.25rem;
+}
+.hero h1 .grad{
+  background:linear-gradient(135deg,var(--org),#EF4444,var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;
+}
+
+.hero-con{
+  font-family:'Dancing Script',cursive;
+  font-size:1.35rem;font-weight:700;
+  color:rgba(255,255,255,0.85);margin-bottom:0.75rem;
+}
+.hero-con em{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:normal;
+}
+
+.hero-info-line{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;
+  color:rgba(255,255,255,0.75);font-weight:600;
+  margin-bottom:1.1rem;letter-spacing:0.01em;
+}
+
+.hero-cta{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;padding:15px;border-radius:14px;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:0.95rem;
+  text-decoration:none;letter-spacing:0.03em;
+  box-shadow:0 8px 30px rgba(124,58,237,0.5);
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;overflow:hidden;
+  animation:pulse-btn 2.8s ease-in-out infinite;
+}
+.hero-cta::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);
+  animation:shimmer 2.2s infinite;
+}
+@keyframes pulse-btn{
+  0%,100%{box-shadow:0 8px 30px rgba(124,58,237,0.5)}
+  50%{box-shadow:0 8px 45px rgba(249,115,22,0.7),0 0 0 6px rgba(249,115,22,0.12)}
+}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(124,58,237,0.65)}
+
+/* ══════════════════════════════
+   CUPOS BANNER
+══════════════════════════════ */
+.cupos-banner{
+  background:linear-gradient(135deg,var(--org),#EF4444,var(--pur));
+  color:#fff;text-align:center;
+  padding:12px 1rem;
+  font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:800;
+  letter-spacing:0.4px;
+}
+.cupos-banner span{font-weight:400;opacity:0.9}
+
+/* ══════════════════════════════
+   TIMEZONE WIDGET
+══════════════════════════════ */
+.tz-wrap{padding:1.25rem 1.5rem 0}
+.tz-widget{border:1.5px solid rgba(124,58,237,0.2);border-radius:14px;overflow:hidden;background:#fff}
+.tz-widget-btn{
+  width:100%;text-align:left;padding:14px 16px;
+  background:var(--pur-light);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:800;color:var(--pur);
+}
+.tz-widget-icon{font-size:1.1rem;transition:transform 0.3s;flex-shrink:0}
+.tz-widget.open .tz-widget-icon{transform:rotate(45deg)}
+.tz-panel{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+.tz-widget.open .tz-panel{max-height:420px}
+.tz-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px 16px;border-top:1px solid rgba(0,0,0,0.06);font-size:0.8rem;
+}
+.tz-country{color:var(--dark);font-weight:600}
+.tz-time{font-family:'Sora',sans-serif;font-weight:800;color:var(--pur);white-space:nowrap}
+
+/* ══════════════════════════════
+   TRUST STATS
+══════════════════════════════ */
+.trust-stats{
+  padding:1.5rem 1.5rem 0.25rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.stat-tile{
+  background:#fff;border:1.5px solid rgba(124,58,237,0.12);
+  border-radius:16px;padding:14px 12px;text-align:center;
+  box-shadow:0 4px 16px rgba(0,0,0,0.05);
+}
+.stat-icon{font-size:1.3rem;margin-bottom:4px;display:block}
+.stat-num{
+  font-family:'Sora',sans-serif;font-weight:900;font-size:1.5rem;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;
+}
+.stat-label{font-size:0.68rem;color:var(--mid);font-weight:600;letter-spacing:0.01em;margin-top:2px}
+
+/* ══════════════════════════════
+   HIGHLIGHTS
+══════════════════════════════ */
+.highlights{
+  display:flex;flex-direction:column;gap:10px;
+  padding:1.75rem 1.5rem;
+}
+.hl-pill{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--pur-light);
+  border:1px solid rgba(124,58,237,0.15);
+  border-radius:14px;padding:13px 14px;
+}
+.hl-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.hl-text{font-size:0.85rem;color:var(--dark);font-weight:600;line-height:1.45;padding-top:2px}
+.hl-text strong{color:var(--pur)}
+
+/* ══════════════════════════════
+   CARDS
+══════════════════════════════ */
+.cards-section{padding:0 1.5rem 1.5rem}
+.card{
+  background:#fff;border:1.5px solid rgba(0,0,0,0.07);
+  border-radius:20px;padding:1.25rem;
+  margin-bottom:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.card-photo{border-radius:14px;overflow:hidden;margin-bottom:1rem}
+.card-photo img{width:100%;display:block;object-fit:cover;aspect-ratio:16/10;object-position:center 48%}
+.card-photo.split img{object-position:center 70%}
+.card-header{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  color:#fff;font-family:'Sora',sans-serif;
+  font-size:0.8rem;font-weight:800;letter-spacing:0.06em;
+  padding:7px 16px;border-radius:8px;
+  margin-bottom:1rem;display:inline-block;
+}
+.card-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.card-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:0.87rem;color:var(--dark);line-height:1.45;
+}
+.ico{font-size:1rem;flex-shrink:0;margin-top:1px}
+.ico-check{
+  width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:0.62rem;font-weight:900;flex-shrink:0;margin-top:2px;
+}
+
+/* ══════════════════════════════
+   PARA QUIÉN ES
+══════════════════════════════ */
+.para-quien{
+  margin:0 1.5rem 1.5rem;
+  background:linear-gradient(135deg,#FFF7ED,#EDE9FE);
+  border:1.5px solid rgba(124,58,237,0.15);
+  border-radius:20px;padding:1.25rem;
+}
+.pq-title{
+  font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:800;
+  color:var(--pur);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.875rem;
+}
+.pq-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1rem}
+.pq-item{display:flex;align-items:center;gap:12px}
+.pq-icon{font-size:1.4rem;flex-shrink:0}
+.pq-name{font-family:'Sora',sans-serif;font-size:0.87rem;font-weight:700;color:var(--dark)}
+.pq-desc{font-size:0.76rem;color:var(--mid);margin-top:1px}
+.pq-note{
+  background:rgba(124,58,237,0.08);border-radius:10px;
+  padding:10px 12px;display:flex;align-items:flex-start;gap:8px;
+  font-size:0.78rem;color:#5B21B6;font-weight:600;line-height:1.45;
+}
+
+/* ══════════════════════════════
+   GALERÍA
+══════════════════════════════ */
+.galeria{padding:0 1.5rem 1.5rem}
+.gal-title{
+  font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;
+  text-align:center;margin-bottom:12px;color:var(--dark);
+}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal-card{border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.12)}
+.gal-card img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3;object-position:center 55%}
+.gal-note{font-size:0.73rem;color:var(--mid);text-align:center;margin-top:8px;font-style:italic}
+
+/* ══════════════════════════════
+   RESULTADOS ALUMNOS
+══════════════════════════════ */
+.results-section{padding:0.5rem 0 1.75rem}
+.results-title{
+  font-family:'Sora',sans-serif;font-size:1rem;font-weight:800;
+  text-align:center;margin-bottom:4px;padding:0 1.5rem;color:var(--dark);
+}
+.results-sub{font-size:0.78rem;color:var(--mid);text-align:center;margin-bottom:10px;padding:0 1.5rem}
+.swipe-hint{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  width:fit-content;margin:0 auto 12px;
+  background:var(--pur-light);color:var(--pur);
+  font-family:'Sora',sans-serif;font-size:0.68rem;font-weight:800;
+  letter-spacing:0.02em;text-transform:uppercase;
+  padding:5px 12px;border-radius:100px;
+}
+.swipe-hint .arrow{display:inline-block;animation:swipe-nudge 1.6s ease-in-out infinite}
+@keyframes swipe-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+.results-scroll-wrap{position:relative}
+.scroll-fade{
+  position:absolute;top:0;right:0;bottom:6px;width:36px;
+  background:linear-gradient(to right, rgba(255,255,255,0), #fff);
+  pointer-events:none;
+}
+.results-scroll{
+  display:flex;gap:10px;overflow-x:auto;padding:0 1.5rem 6px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+}
+.results-scroll::-webkit-scrollbar{display:none}
+.result-card{flex:0 0 148px;scroll-snap-align:start}
+.result-card img{
+  width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 25%;
+  border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.14);display:block;
+}
+.results-note{font-size:0.73rem;color:var(--mid);text-align:center;margin-top:10px;padding:0 1.5rem;font-style:italic}
+
+/* ══════════════════════════════
+   QUOTE
+══════════════════════════════ */
+.quote-section{
+  background:linear-gradient(135deg,#0a0612,#1a0a2e);
+  padding:2.5rem 1.5rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.quote-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(124,58,237,0.2) 0%,transparent 70%);
+}
+.quote-diamond{font-size:2.2rem;margin-bottom:1rem;display:block;position:relative}
+.quote-text{
+  font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:700;
+  color:#fff;line-height:1.45;font-style:italic;position:relative;
+}
+.quote-text .accent{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:normal;
+}
+
+/* ══════════════════════════════
+   BENEFITS BAR
+══════════════════════════════ */
+.benefits{
+  background:linear-gradient(135deg,var(--org),#EF4444,var(--pur));
+  padding:1.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.benefit-item{display:flex;align-items:center;gap:9px}
+.b-icon{font-size:1.4rem;flex-shrink:0}
+.b-text{
+  font-family:'Sora',sans-serif;font-size:0.72rem;
+  font-weight:800;color:#fff;line-height:1.3;letter-spacing:0.02em;
+  text-transform:uppercase;
+}
+.benefit-full{grid-column:1/-1}
+
+/* ══════════════════════════════
+   CTA
+══════════════════════════════ */
+.cta-section{padding:2.5rem 1.5rem;text-align:center}
+.cta-urgency{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);
+  border-radius:100px;padding:6px 14px;
+  font-family:'Sora',sans-serif;font-size:0.74rem;font-weight:800;
+  color:#DC2626;margin-bottom:1.25rem;letter-spacing:0.04em;
+}
+.cta-title{
+  font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;
+  color:var(--dark);margin-bottom:0.5rem;line-height:1.25;
+}
+.cta-price{
+  font-family:'Sora',sans-serif;font-size:2.6rem;font-weight:900;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:1.5rem;line-height:1;
+}
+.cta-price span{font-size:1rem;color:var(--mid);-webkit-text-fill-color:var(--mid);font-weight:500}
+.btn-shopify{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:17px;border-radius:14px;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:1rem;
+  text-decoration:none;margin-bottom:12px;
+  box-shadow:0 8px 30px rgba(124,58,237,0.35);
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;overflow:hidden;
+}
+.btn-shopify::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);
+  animation:shimmer 2.2s infinite;
+}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+.btn-shopify:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(124,58,237,0.55)}
+.btn-wsp{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:14px;border-radius:14px;
+  background:rgba(37,211,102,0.08);border:1.5px solid rgba(37,211,102,0.3);
+  color:#15803D;font-family:'Sora',sans-serif;font-weight:700;font-size:0.9rem;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-wsp:hover{background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.5)}
+.cta-note{font-size:0.74rem;color:var(--mid);margin-top:10px;line-height:1.5}
+
+/* ══════════════════════════════
+   FAQ
+══════════════════════════════ */
+.faq-section{padding:1.5rem;max-width:480px;margin:0 auto}
+.faq-title{
+  font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:800;
+  text-align:center;margin-bottom:1rem;color:var(--dark);
+}
+.faq-item{border:1.5px solid rgba(0,0,0,0.08);border-radius:14px;margin-bottom:8px;overflow:hidden;background:#fff}
+.faq-q{
+  width:100%;text-align:left;padding:14px 16px;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-family:'Sora',sans-serif;font-size:0.87rem;font-weight:700;color:var(--dark);
+}
+.faq-icon{font-size:1.1rem;flex-shrink:0;transition:transform 0.3s;color:var(--pur);font-weight:400}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height 0.35s ease;
+  font-size:0.83rem;color:#4B5563;line-height:1.6;padding:0 16px;
+}
+.faq-item.open .faq-a{max-height:260px;padding:0 16px 14px}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.footer{
+  text-align:center;padding:1.75rem 1.5rem;
+  border-top:3px solid transparent;
+  border-image:linear-gradient(90deg,var(--org),#EF4444,var(--pur)) 1;
+  background:#fff;
+}
+.footer-text{
+  font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:800;
+  color:var(--pur);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;
+}
+.footer-brand{font-size:0.68rem;color:var(--mid);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* ══════════════════════════════
+   ANIMACIONES DE SCROLL
+══════════════════════════════ */
+[data-anim]{will-change:opacity,transform}
+
+[data-anim="up"]   {opacity:0;transform:translateY(40px)}
+[data-anim="down"] {opacity:0;transform:translateY(-30px)}
+[data-anim="left"] {opacity:0;transform:translateX(-40px)}
+[data-anim="right"]{opacity:0;transform:translateX(40px)}
+[data-anim="scale"]{opacity:0;transform:scale(0.88)}
+[data-anim="fade"] {opacity:0}
+
+[data-anim].in{
+  opacity:1 !important;
+  transform:none !important;
+  transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+
+.stagger > *:nth-child(1){transition-delay:0s}
+.stagger > *:nth-child(2){transition-delay:0.1s}
+.stagger > *:nth-child(3){transition-delay:0.2s}
+.stagger > *:nth-child(4){transition-delay:0.3s}
+.stagger > *:nth-child(5){transition-delay:0.4s}
+
+.wrap{max-width:480px;margin:0 auto}
+
+@media(max-width:390px){
+  .hero h1{font-size:2.15rem}
+  .hero-con{font-size:1.3rem}
+  .hero-cta{font-size:0.88rem;padding:14px}
+  .btn-shopify{font-size:0.92rem;padding:15px}
+  .cta-price{font-size:2.1rem}
+}
+@media(min-width:481px){
+  .hero{min-height:100vh}
+  .hero h1{font-size:3.1rem}
+  .cupos-banner,.benefits{padding-left:2rem;padding-right:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="bg-photo">
+      <img src="img/masterclass-hero-split.jpg" alt="Camila Garay demostrando split sagital">
+    </div>
+    <div class="bg-photo">
+      <img src="img/masterclass-hero-tablet.jpg" alt="Camila Garay explicando la metodología">
+    </div>
+  </div>
+
+  <div class="hero-top">
+    <img class="hero-logo" src="img/cgc-logo.png" alt="CGC Method">
+    <div class="hero-live-badge"><span class="live-dot"></span> PARA ENTRENADORES</div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🎓 Masterclass Virtual</div>
+
+    <h1>
+      <span style="color:#fff">DOMINA LA</span>
+      <span style="color:#fff">ENSEÑANZA DEL</span>
+      <span class="grad">SPLIT SAGITAL</span>
+    </h1>
+
+    <p class="hero-con">con <em>Camila Garay</em></p>
+
+    <p class="hero-info-line">📅 Sáb 30 Ago &nbsp;·&nbsp; ⏰ 10:00am–12:00pm (Perú/Colombia) &nbsp;·&nbsp; 💻 Virtual por Zoom</p>
+
+    <a href="#inscripcion" class="hero-cta">
+      🎓 QUIERO MI CUPO — $79 USD
+    </a>
+  </div>
+</section>
+
+<!-- ══ CUPOS BANNER ══ -->
+<div class="cupos-banner" data-anim="down">
+  ⚡ SOLO 30 CUPOS — Sábado 30 de agosto <span>· 10:00am–12:00pm (hora Perú/Colombia) · 100% Virtual</span>
+</div>
+
+<!-- ══ HORARIOS POR PAÍS ══ -->
+<div class="tz-wrap wrap" data-anim="up">
+  <div class="tz-widget">
+    <button class="tz-widget-btn" onclick="toggleTz(this)">
+      🌎 Ver mi horario según mi país <span class="tz-widget-icon">+</span>
+    </button>
+    <div class="tz-panel">
+      <div class="tz-row"><span class="tz-country">🇵🇪 Perú · 🇨🇴 Colombia · 🇪🇨 Ecuador</span><span class="tz-time">10:00am – 12:00pm</span></div>
+      <div class="tz-row"><span class="tz-country">🇲🇽 México</span><span class="tz-time">9:00am – 11:00am</span></div>
+      <div class="tz-row"><span class="tz-country">🇻🇪 Venezuela · 🇧🇴 Bolivia · 🇵🇾 Paraguay</span><span class="tz-time">11:00am – 1:00pm</span></div>
+      <div class="tz-row"><span class="tz-country">🇨🇱 Chile</span><span class="tz-time">11:00am – 1:00pm</span></div>
+      <div class="tz-row"><span class="tz-country">🇦🇷 Argentina · 🇺🇾 Uruguay</span><span class="tz-time">12:00pm – 2:00pm</span></div>
+      <div class="tz-row"><span class="tz-country">🇪🇸 España</span><span class="tz-time">5:00pm – 7:00pm</span></div>
+      <div class="tz-row"><span class="tz-country">🇺🇸 EE.UU. (Este)</span><span class="tz-time">11:00am – 1:00pm</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TRUST STATS ══ -->
+<div class="trust-stats stagger">
+  <div class="stat-tile" data-anim="scale">
+    <span class="stat-icon">🌍</span>
+    <p class="stat-num">+15</p>
+    <p class="stat-label">países aplicando su método</p>
+  </div>
+  <div class="stat-tile" data-anim="scale">
+    <span class="stat-icon">📅</span>
+    <p class="stat-num">8 años</p>
+    <p class="stat-label">formando gimnastas y bailarinas</p>
+  </div>
+  <div class="stat-tile" data-anim="scale">
+    <span class="stat-icon">🎓</span>
+    <p class="stat-num">+100</p>
+    <p class="stat-label">alumnas y entrenadores formados</p>
+  </div>
+  <div class="stat-tile" data-anim="scale">
+    <span class="stat-icon">📱</span>
+    <p class="stat-num">131K</p>
+    <p class="stat-label">siguen su método en Instagram</p>
+  </div>
+</div>
+
+<!-- ══ HIGHLIGHTS ══ -->
+<div class="highlights wrap stagger">
+  <div class="hl-pill" data-anim="left">
+    <div class="hl-icon">🌍</div>
+    <div class="hl-text">El método que Camila ya aplica con entrenadores de <strong>más de 15 países</strong></div>
+  </div>
+  <div class="hl-pill" data-anim="left">
+    <div class="hl-icon">👥</div>
+    <div class="hl-text">Solo <strong>30 cupos</strong> — grupo reducido para resolver dudas reales de tus alumnos</div>
+  </div>
+  <div class="hl-pill" data-anim="left">
+    <div class="hl-icon">🎯</div>
+    <div class="hl-text">La metodología que Camila usa para <strong>enseñar split sagital de forma segura y progresiva</strong>, sin lesionar</div>
+  </div>
+</div>
+
+<!-- ══ CARDS ══ -->
+<div class="cards-section wrap">
+  <div class="card" data-anim="up">
+    <div class="card-photo"><img src="img/masterclass-card-incluye.jpg" alt="Camila Garay explicando la masterclass"></div>
+    <div class="card-header">¿QUÉ INCLUYE?</div>
+    <ul class="card-list">
+      <li><span class="ico">💻</span> 2 horas de masterclass en vivo por Zoom con Camila Garay.</li>
+      <li><span class="ico">🎥</span> Grabación de la clase, por si no puedes conectarte en el horario en vivo.</li>
+      <li><span class="ico">🎓</span> Certificado de participación.</li>
+      <li><span class="ico">🙋</span> Espacio de preguntas en vivo (Q&amp;A) para casos reales de tus alumnos.</li>
+      <li><span class="ico">💬</span> Acceso a grupo de entrenadores para seguir consultando después de la clase.</li>
+    </ul>
+  </div>
+  <div class="card" data-anim="up">
+    <div class="card-photo split"><img src="img/masterclass-card-aprenderas.jpg" alt="Camila Garay en split sagital"></div>
+    <div class="card-header">¿QUÉ APRENDERÁS?</div>
+    <ul class="card-list">
+      <li><div class="ico-check">✓</div> Cómo evaluar la flexibilidad de base antes de empezar a trabajar split sagital</li>
+      <li><div class="ico-check">✓</div> Progresiones seguras, paso a paso, según el nivel del alumno</li>
+      <li><div class="ico-check">✓</div> Los errores técnicos más comunes al enseñar split sagital — y cómo corregirlos</li>
+      <li><div class="ico-check">✓</div> Cómo armar un plan de progresión para no estancar ni forzar a tus alumnos</li>
+      <li><div class="ico-check">✓</div> Cómo prevenir lesiones al trabajar aperturas con niños y jóvenes</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ PARA QUIÉN ES ══ -->
+<div class="wrap" style="padding:0 1.5rem 1.5rem">
+  <div class="para-quien" data-anim="scale">
+    <p class="pq-title">🙋 ¿Para quién es esta masterclass?</p>
+    <div class="pq-list">
+      <div class="pq-item">
+        <span class="pq-icon">🤸</span>
+        <div>
+          <p class="pq-name">Entrenadores de gimnasia, acro y cheer</p>
+          <p class="pq-desc">Que enseñan flexibilidad como parte de su plan de entrenamiento</p>
+        </div>
+      </div>
+      <div class="pq-item">
+        <span class="pq-icon">💃</span>
+        <div>
+          <p class="pq-name">Profesores de danza y ballet</p>
+          <p class="pq-desc">Que buscan una metodología segura para trabajar aperturas</p>
+        </div>
+      </div>
+      <div class="pq-item">
+        <span class="pq-icon">🧘</span>
+        <div>
+          <p class="pq-name">Instructores de movilidad y stretching</p>
+          <p class="pq-desc">Que quieren llevar su enseñanza de splits a otro nivel</p>
+        </div>
+      </div>
+    </div>
+    <div class="pq-note">
+      <span>💡</span>
+      <span>No necesitas experiencia previa enseñando split sagital — la masterclass parte desde la evaluación inicial hasta la progresión avanzada.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GALERÍA ══ -->
+<div class="galeria wrap" data-anim="up">
+  <p class="gal-title">La metodología que aplicarás con tus alumnos 🎯</p>
+  <div class="gal-grid">
+    <div class="gal-card">
+      <img src="img/masterclass-gallery-progresion.jpg" alt="Progresión de zancada para split sagital">
+    </div>
+    <div class="gal-card">
+      <img src="img/masterclass-gallery-split.jpg" alt="Split sagital con flexibilidad de espalda">
+    </div>
+  </div>
+  <p class="gal-note">Progresiones, correcciones y prevención de lesiones — todo explicado paso a paso</p>
+</div>
+
+<!-- ══ RESULTADOS ALUMNOS ══ -->
+<div class="results-section" data-anim="up">
+  <p class="results-title">Resultados reales, 100% online 🌎</p>
+  <p class="results-sub">Alumnos de todas las edades que lograron su split entrenando a distancia con el método CGC</p>
+  <div class="swipe-hint">Desliza para ver más <span class="arrow">👉</span></div>
+  <div class="results-scroll-wrap">
+    <div class="results-scroll">
+      <div class="result-card"><img src="img/resultado-nina-sonriendo.jpg" alt="Alumna lograda su split online"></div>
+      <div class="result-card"><img src="img/resultado-mujer-rojo.jpg" alt="Alumna lograda su split online"></div>
+      <div class="result-card"><img src="img/resultado-hombre-block.jpg" alt="Alumno logrando su split online"></div>
+      <div class="result-card"><img src="img/resultado-mujer-fireplace.jpg" alt="Alumna lograda su split online"></div>
+      <div class="result-card"><img src="img/resultado-hombre-manosarriba.jpg" alt="Alumno logrando su split online"></div>
+      <div class="result-card"><img src="img/resultado-nina-colorido.jpg" alt="Alumna lograda su split con arco online"></div>
+    </div>
+    <div class="scroll-fade"></div>
+  </div>
+  <p class="results-note">Niños, adultos, principiantes — la misma metodología funciona para todos, sin importar dónde estén</p>
+</div>
+
+<!-- ══ QUOTE ══ -->
+<div class="quote-section" data-anim="fade">
+  <span class="quote-diamond">💎</span>
+  <p class="quote-text">
+    No se trata de estirar más...<br>se trata de <span class="accent">enseñar mejor.</span>
+  </p>
+</div>
+
+<!-- ══ BENEFITS ══ -->
+<div class="benefits stagger">
+  <div class="benefit-item" data-anim="up"><span class="b-icon">🎓</span><span class="b-text">Metodología probada con alumnas reales</span></div>
+  <div class="benefit-item" data-anim="up"><span class="b-icon">⚡</span><span class="b-text">Aplica desde tu primera clase</span></div>
+  <div class="benefit-item" data-anim="up"><span class="b-icon">🛡️</span><span class="b-text">Reduce el riesgo de lesiones</span></div>
+  <div class="benefit-item" data-anim="up"><span class="b-icon">👥</span><span class="b-text">Grupo reducido, atención real</span></div>
+  <div class="benefit-item benefit-full" data-anim="up"><span class="b-icon">🏆</span><span class="b-text">Certificado de participación incluido</span></div>
+</div>
+
+<!-- ══ CTA ══ -->
+<div class="cta-section wrap" id="inscripcion" data-anim="up">
+  <div class="cta-urgency">⚠️ SOLO 30 CUPOS DISPONIBLES</div>
+  <p class="cta-title">Asegura tu cupo y lleva tu<br>enseñanza al siguiente nivel</p>
+  <p class="cta-price">$79 <span>USD</span></p>
+  <a href="https://camilagaraycoach.com/products/domina-la-ensenanza-del-split-sagital-masterclass-para-entrenadores" class="btn-shopify" target="_blank">
+    🎓 QUIERO MI CUPO AHORA
+  </a>
+  <a href="https://wa.me/51954655122?text=Hola%20Camila%2C%20quiero%20reservar%20mi%20cupo%20en%20la%20Masterclass%20de%20Split%20Sagital%20del%2030%20de%20agosto%20%F0%9F%99%8C" class="btn-wsp" target="_blank">
+    💬 Escribir por WhatsApp
+  </a>
+  <p class="cta-note">Pago 100% seguro · Solo 30 cupos · Sábado 30 de agosto · Virtual por Zoom</p>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="faq-section" data-anim="up">
+  <p class="faq-title">Preguntas frecuentes</p>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Necesito experiencia previa enseñando split sagital?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">No, la masterclass está diseñada para entrenadores de cualquier nivel. Partimos desde la evaluación de base hasta las progresiones más avanzadas.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Qué pasa si no puedo conectarme en el horario en vivo?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">No hay problema. La grabación completa de la masterclass está incluida en tu inscripción, así que puedes verla cuando quieras.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Es solo para gimnasia o aplica a otras disciplinas?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">La metodología aplica a cualquier disciplina que trabaje flexibilidad de piernas: gimnasia, acro, cheer, danza, ballet, patinaje, artes marciales, entre otras.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cómo recibo el certificado de participación?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Al finalizar la masterclass te enviaremos el certificado digital por correo o WhatsApp.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Puedo pagar por WhatsApp?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Sí, también puedes coordinar tu pago directamente con Camila por WhatsApp si prefieres esa opción.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Qué pasa si no puedo asistir el día del evento?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Escríbenos por WhatsApp antes del evento para coordinar. De todas formas, recibirás la grabación completa de la masterclass.</div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer" data-anim="fade">
+  <p class="footer-text">🎓 CUPOS MUY LIMITADOS · ASEGURA TU LUGAR</p>
+  <p class="footer-brand">CGC METHOD • FLEXIBILITY, ACRO & DANCE TECHNIQUE</p>
+</div>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+function toggleTz(btn){
+  btn.parentElement.classList.toggle('open');
+}
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const delay = e.target.dataset.delay || 0;
+      setTimeout(() => e.target.classList.add('in'), delay);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.stagger [data-anim]').forEach((el, i) => {
+  el.dataset.delay = i * 100;
+});
+
+document.querySelectorAll('[data-anim]').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
