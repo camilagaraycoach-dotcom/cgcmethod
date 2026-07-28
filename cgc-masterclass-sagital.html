@@ -158,6 +158,37 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 .cupos-banner span{font-weight:400;opacity:0.9}
 
 /* ══════════════════════════════
+   OFFER BANNER (precio especial)
+══════════════════════════════ */
+.offer-banner{
+  background:#0a0612;
+  padding:12px 1rem;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.offer-banner-price{
+  font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:800;
+  color:#fff;text-align:center;letter-spacing:0.01em;
+}
+.offer-banner-price .price-old{
+  font-size:0.85rem;-webkit-text-fill-color:rgba(255,255,255,0.5);color:rgba(255,255,255,0.5);
+  margin-right:6px;
+}
+.offer-banner-price .price-new{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-size:1.1rem;font-weight:900;
+}
+.offer-mini-timer{
+  display:flex;align-items:center;gap:6px;
+  font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:700;
+  color:#FCA5A5;letter-spacing:0.02em;
+}
+.offer-mini-timer .cd-h,.offer-mini-timer .cd-m,.offer-mini-timer .cd-s{
+  background:rgba(255,255,255,0.1);border-radius:6px;padding:2px 6px;
+  font-family:'Sora',sans-serif;font-weight:800;color:#fff;
+}
+
+/* ══════════════════════════════
    TIMEZONE WIDGET
 ══════════════════════════════ */
 .tz-wrap{padding:1.25rem 1.5rem 0}
@@ -391,6 +422,29 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
   margin-bottom:1.5rem;line-height:1;
 }
 .cta-price span{font-size:1rem;color:var(--mid);-webkit-text-fill-color:var(--mid);font-weight:500}
+.price-old{
+  font-size:1.5rem;font-weight:700;color:var(--mid);-webkit-text-fill-color:var(--mid);
+  text-decoration:line-through;margin-right:10px;
+}
+
+/* ══════════════════════════════
+   COUNTDOWN
+══════════════════════════════ */
+.countdown-wrap{margin:0 0 1.5rem 0}
+.countdown-label{
+  font-family:'Sora',sans-serif;font-size:0.76rem;font-weight:800;
+  color:#DC2626;text-align:center;margin-bottom:10px;
+  letter-spacing:0.03em;text-transform:uppercase;
+}
+.countdown-timer{display:flex;align-items:center;justify-content:center;gap:8px}
+.countdown-unit{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  border-radius:12px;padding:10px 12px;min-width:54px;text-align:center;
+  box-shadow:0 4px 16px rgba(124,58,237,0.3);
+}
+.countdown-num{font-family:'Sora',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;line-height:1}
+.countdown-unit-label{font-size:0.58rem;color:rgba(255,255,255,0.85);font-weight:700;text-transform:uppercase;margin-top:3px;letter-spacing:0.02em}
+.countdown-sep{font-family:'Sora',sans-serif;font-weight:900;font-size:1.3rem;color:var(--pur)}
 .btn-shopify{
   display:flex;align-items:center;justify-content:center;gap:10px;
   width:100%;padding:17px;border-radius:14px;
@@ -525,17 +579,23 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 
     <p class="hero-con">con <em>Camila Garay</em></p>
 
-    <p class="hero-info-line">📅 Sáb 30 Ago &nbsp;·&nbsp; ⏰ 10:00am–12:00pm (Perú/Colombia) &nbsp;·&nbsp; 💻 Virtual por Zoom</p>
+    <p class="hero-info-line">📅 Dom 30 Ago &nbsp;·&nbsp; ⏰ 10:00am–12:00pm (Perú/Colombia) &nbsp;·&nbsp; 💻 Virtual por Zoom</p>
 
     <a href="#inscripcion" class="hero-cta">
-      🎓 QUIERO MI CUPO — $79 USD
+      🎓 QUIERO MI CUPO — $59 USD
     </a>
   </div>
 </section>
 
 <!-- ══ CUPOS BANNER ══ -->
 <div class="cupos-banner" data-anim="down">
-  ⚡ SOLO 30 CUPOS — Sábado 30 de agosto <span>· 10:00am–12:00pm (hora Perú/Colombia) · 100% Virtual</span>
+  ⚡ SOLO 30 CUPOS — Domingo 30 de agosto <span>· 10:00am–12:00pm (hora Perú/Colombia) · 100% Virtual</span>
+</div>
+
+<!-- ══ OFFER BANNER (precio especial) ══ -->
+<div class="offer-banner" data-anim="down">
+  <p class="offer-banner-price">🔥 PRECIO ESPECIAL: <span class="price-old">$79</span><span class="price-new">$59 USD</span></p>
+  <div class="offer-mini-timer">⏳ Termina en <span class="cd-h">24</span>h <span class="cd-m">00</span>m <span class="cd-s">00</span>s</div>
 </div>
 
 <!-- ══ HORARIOS POR PAÍS ══ -->
@@ -710,14 +770,26 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
 <div class="cta-section wrap" id="inscripcion" data-anim="up">
   <div class="cta-urgency">⚠️ SOLO 30 CUPOS DISPONIBLES</div>
   <p class="cta-title">Asegura tu cupo y lleva tu<br>enseñanza al siguiente nivel</p>
-  <p class="cta-price">$79 <span>USD</span></p>
+
+  <div class="countdown-wrap">
+    <p class="countdown-label">⏳ Precio especial termina en:</p>
+    <div class="countdown-timer">
+      <div class="countdown-unit"><div class="countdown-num cd-h">24</div><div class="countdown-unit-label">Hrs</div></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><div class="countdown-num cd-m">00</div><div class="countdown-unit-label">Min</div></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><div class="countdown-num cd-s">00</div><div class="countdown-unit-label">Seg</div></div>
+    </div>
+  </div>
+
+  <p class="cta-price"><span class="price-old">$79</span>$59 <span>USD</span></p>
   <a href="https://camilagaraycoach.com/products/domina-la-ensenanza-del-split-sagital-masterclass-para-entrenadores" class="btn-shopify" target="_blank">
     🎓 QUIERO MI CUPO AHORA
   </a>
   <a href="https://wa.me/51954655122?text=Hola%20Camila%2C%20quiero%20reservar%20mi%20cupo%20en%20la%20Masterclass%20de%20Split%20Sagital%20del%2030%20de%20agosto%20%F0%9F%99%8C" class="btn-wsp" target="_blank">
     💬 Escribir por WhatsApp
   </a>
-  <p class="cta-note">Pago 100% seguro · Solo 30 cupos · Sábado 30 de agosto · Virtual por Zoom</p>
+  <p class="cta-note">Pago 100% seguro · Solo 30 cupos · Domingo 30 de agosto · Virtual por Zoom</p>
 </div>
 
 <!-- ══ FAQ ══ -->
@@ -794,6 +866,33 @@ document.querySelectorAll('.stagger [data-anim]').forEach((el, i) => {
 });
 
 document.querySelectorAll('[data-anim]').forEach(el => io.observe(el));
+
+(function(){
+  const KEY = 'cgc_masterclass_offer_expiry';
+  const DURATION = 24 * 60 * 60 * 1000;
+  let expiry = parseInt(localStorage.getItem(KEY), 10);
+  if(!expiry || Date.now() > expiry){
+    expiry = Date.now() + DURATION;
+    localStorage.setItem(KEY, expiry);
+  }
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    let diff = expiry - Date.now();
+    if(diff <= 0){
+      expiry = Date.now() + DURATION;
+      localStorage.setItem(KEY, expiry);
+      diff = DURATION;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.querySelectorAll('.cd-h').forEach(el => el.textContent = pad(h));
+    document.querySelectorAll('.cd-m').forEach(el => el.textContent = pad(m));
+    document.querySelectorAll('.cd-s').forEach(el => el.textContent = pad(s));
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 </script>
 </body>
 </html>
