@@ -548,6 +548,64 @@ body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--dark);overflow
   .hero h1{font-size:3.1rem}
   .cupos-banner,.benefits{padding-left:2rem;padding-right:2rem}
 }
+
+/* ══════════════════════════════
+   TABLET / DESKTOP (≥768px)
+══════════════════════════════ */
+@media(min-width:768px){
+  .wrap{max-width:640px}
+
+  /* Hero: side-by-side photos instead of stacked, contained text column */
+  .hero-bg{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .hero-bg .bg-photo:first-child::after{
+    content:'';position:absolute;top:0;bottom:0;right:0;width:2px;left:auto;height:auto;
+    background:linear-gradient(180deg,transparent,rgba(255,255,255,0.15),transparent);
+  }
+  .hero-content{max-width:640px;padding-left:2.5rem}
+  .hero-top{padding:1.5rem 2.5rem}
+  .hero-cta{width:auto;min-width:320px;padding-left:2rem;padding-right:2rem}
+
+  .trust-stats{max-width:640px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+  .para-quien{max-width:640px;margin:0 auto 1.5rem;padding:1.75rem}
+  .pq-list{flex-direction:row;gap:16px}
+  .pq-item{flex:1;flex-direction:column;text-align:center;align-items:center;gap:8px}
+
+  .cards-section{max-width:640px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 1.5rem 1.5rem}
+  .card{margin-bottom:0}
+
+  .quote-text{max-width:600px;margin:0 auto}
+  .benefits{max-width:640px;margin:0 auto;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:2rem;padding-bottom:2rem}
+  .benefit-full{grid-column:auto}
+
+  .btn-shopify,.btn-wsp{max-width:420px;margin-left:auto;margin-right:auto}
+  .faq-section{max-width:560px}
+}
+
+/* ══════════════════════════════
+   DESKTOP (≥1024px)
+══════════════════════════════ */
+@media(min-width:1024px){
+  .wrap{max-width:720px}
+  .hero h1{font-size:3.6rem}
+  .hero-content{max-width:680px;padding-left:4rem}
+  .hero-top{padding:1.75rem 4rem}
+  .cupos-banner,.benefits{padding-left:3rem;padding-right:3rem}
+
+  .trust-stats{max-width:720px;grid-template-columns:repeat(4,1fr)}
+  .stat-num{font-size:1.7rem}
+
+  .highlights{max-width:720px;flex-direction:row}
+  .hl-pill{flex:1}
+
+  .para-quien{max-width:720px}
+  .cards-section{max-width:720px}
+  .galeria{max-width:720px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+  .results-section .wrap,.results-scroll-wrap{max-width:800px;margin:0 auto}
+  .quote-text{font-size:1.5rem}
+  .benefits{max-width:720px}
+  .cta-title{font-size:1.7rem}
+  .cta-price{font-size:3.2rem}
+}
 </style>
 </head>
 <body>
