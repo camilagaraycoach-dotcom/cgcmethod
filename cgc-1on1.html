@@ -316,9 +316,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
     <div class="plan-name" style="color:#8B5CF6">Clase 1:1 con Camila Garay</div>
     <div class="plan-tagline">Una hora directa con Camila. Virtual o presencial en Lima.</div>
     <div class="plan-price-row">
-      <div class="plan-price" style="color:#8B5CF6">$50 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
-      <div class="plan-price-orig">$60</div>
-      <div class="plan-price-sol" id="sol-50">Calculando...</div>
+      <div class="plan-price" style="color:#8B5CF6">$60 <span style="font-size:1rem;font-weight:500;color:var(--ts)">USD</span></div>
+      <div class="plan-price-sol" id="sol-60">Calculando...</div>
     </div>
     <ul class="plan-features">
       <li><span class="ico">⏱️</span>1 clase en vivo de 1 hora</li>
@@ -422,7 +421,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
     <div class="coach-picker">
       <button type="button" class="coach-btn active" data-camila="1" onclick="pickCoach(this)">
         <div class="coach-avatar c">C<img src="img/avatar-camila.jpg" onerror="this.remove()" alt="Camila"></div>
-        <div class="coach-info"><div class="coach-name">Camila</div><span class="coach-star">★ Fundadora</span><span class="coach-price"><s>$60</s> $50<small>/clase</small></span></div>
+        <div class="coach-info"><div class="coach-name">Camila</div><span class="coach-star">★ Fundadora</span><span class="coach-price">$60<small>/clase</small></span></div>
       </button>
       <button type="button" class="coach-btn" data-url="https://tidycal.com/camilagaraycoach/clase-con-andrea-cgc-method" onclick="pickCoach(this)">
         <div class="coach-avatar a">A<img src="img/avatar-andrea.jpg" onerror="this.remove()" alt="Andrea"></div>
@@ -476,7 +475,7 @@ function pickModality(btn,url){
   <div class="payment-title anim-up">💳 Paga de forma segura</div>
   <div class="section-sub" style="margin-bottom:1rem">Primero agenda tu horario arriba. Luego completa tu pago aquí con tarjeta de crédito o débito.</div>
   <div class="intl-box">
-    <a href="https://camilagaraycoach.com/products/sesion-estrategica-1-1-con-camila-garay-clase-personalizada-en-vivo-60-min?variant=47768388894894" target="_blank" rel="noopener" style="display:block;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,#8B5CF6,#3B82F6);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:0.9rem;text-decoration:none;text-align:center;margin-bottom:8px">🎯 Clase 1:1 con Camila — $50 USD</a>
+    <a href="https://camilagaraycoach.com/products/sesion-estrategica-1-1-con-camila-garay-clase-personalizada-en-vivo-60-min?variant=47768388894894" target="_blank" rel="noopener" style="display:block;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,#8B5CF6,#3B82F6);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:0.9rem;text-decoration:none;text-align:center;margin-bottom:8px">🎯 Clase 1:1 con Camila — $60 USD</a>
     <a href="https://wa.me/51954655122?text=Hola%21%20Ya%20agend%C3%A9%20mi%20clase%201%3A1%20con%20Andrea%2FSebasti%C3%A1n%20%28%2435%29.%20%C2%BFMe%20pasan%20el%20link%20de%20pago%3F" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:0.9rem;text-decoration:none;text-align:center;margin-bottom:0">👥 Clase con el equipo — $35 USD</a>
   </div>
   <div class="booking-note" style="margin-top:10px">Tu clase queda confirmada una vez recibido el pago.</div>
@@ -516,7 +515,7 @@ function pickModality(btn,url){
       ¿Cuál es la diferencia entre una clase con Camila y con el equipo?
       <span class="faq-icon">+</span>
     </button>
-    <div class="faq-a">Todas las clases siguen el CGC Method. Con Camila ($50) entrenas directamente con la fundadora, virtual o presencial en Lima. Con Andrea o Sebastián ($35) —coaches formados por ella— entrenas virtual por Zoom con el mismo enfoque personalizado.</div>
+    <div class="faq-a">Todas las clases siguen el CGC Method. Con Camila ($60) entrenas directamente con la fundadora, virtual o presencial en Lima. Con Andrea o Sebastián ($35) —coaches formados por ella— entrenas virtual por Zoom con el mismo enfoque personalizado.</div>
   </div>
 
   <div class="faq-item anim-up">
@@ -562,7 +561,7 @@ async function fetchRate(){
 }
 
 function updateSoles(rate){
-  const amounts = [{id:'sol-50',usd:50},{id:'sol-35',usd:35}];
+  const amounts = [{id:'sol-60',usd:60},{id:'sol-35',usd:35}];
   amounts.forEach(({id,usd})=>{
     const el = document.getElementById(id);
     if(el) el.textContent = `≈ S/ ${Math.round(usd*rate).toLocaleString('es-PE')}`;
