@@ -435,18 +435,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);min-he
 
     <!-- Modalidad: solo aparece con Camila -->
     <div class="modality show" id="modality">
-      <button type="button" class="mod-btn active" onclick="pickModality(this,'https://tidycal.com/camilagaray/cgc-elite-virtual-1hr')">🎥 Virtual (Zoom)</button>
-      <button type="button" class="mod-btn" onclick="pickModality(this,'https://tidycal.com/camilagaray/cgc-elite-presenciales-1hr-paquete')">📍 Presencial · Lima</button>
+      <button type="button" class="mod-btn active" onclick="pickModality(this,'https://tidycal.com/camilagaray/cgc-camilagaray-virtual-1hr')">🎥 Virtual (Zoom)</button>
+      <button type="button" class="mod-btn" onclick="pickModality(this,'https://tidycal.com/camilagaray/cgc-camilagaray-presencial-1hr')">📍 Presencial · Lima</button>
     </div>
 
     <div class="booking-frame-wrap">
-      <iframe id="tidycalFrame" src="https://tidycal.com/camilagaray/cgc-elite-virtual-1hr" title="Agenda tu clase CGC Method" loading="lazy"></iframe>
+      <iframe id="tidycalFrame" src="https://tidycal.com/camilagaray/cgc-camilagaray-virtual-1hr" title="Agenda tu clase CGC Method" loading="lazy"></iframe>
     </div>
     <div class="booking-note">Al reservar bloqueas tu horario. Luego completas tu pago de forma segura más abajo. 👇</div>
   </div>
 </div>
 <script>
-var CAMILA_VIRTUAL='https://tidycal.com/camilagaray/cgc-elite-virtual-1hr';
+var CAMILA_VIRTUAL='https://tidycal.com/camilagaray/cgc-camilagaray-virtual-1hr';
 function pickCoach(btn){
   document.querySelectorAll('.coach-btn').forEach(function(b){b.classList.remove('active')});
   btn.classList.add('active');
