@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Masterclass para Bailarines — Arco, Split y Preparación Física | CGC Method</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --org:#F97316;
+  --red:#EF4444;
+  --pur:#7C3AED;
+  --blue:#3B82F6;
+  --dark:#0a0612;
+  --card:#15101f;
+  --mid:#A1A1AA;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
+.wrap{max-width:480px;margin:0 auto}
+.grad-text{
+  background:linear-gradient(90deg,var(--org),var(--red),var(--pur),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ══ TOP BAR ══ */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 1.25rem;
+}
+.topbar-logo{height:30px;filter:brightness(0) invert(1);opacity:0.95}
+.topbar-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:100px;padding:5px 12px;
+  font-family:'Sora',sans-serif;font-size:0.65rem;font-weight:800;
+  letter-spacing:0.05em;text-transform:uppercase;
+}
+.live-dot{width:6px;height:6px;background:var(--org);border-radius:50%;animation:blink 1.4s infinite;display:inline-block}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* ══ HERO IMAGE ══ */
+.hero-img-wrap{padding:0 1.25rem}
+.hero-img-wrap img{width:100%;display:block;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,0.5)}
+
+.hero-cta-block{padding:1.25rem 1.25rem 0.5rem;text-align:center}
+.hero-info-line{
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;
+  color:rgba(255,255,255,0.8);font-weight:600;
+  margin-bottom:1rem;line-height:1.6;
+}
+.hero-cta{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;padding:16px;border-radius:14px;
+  background:linear-gradient(135deg,var(--org),var(--red),var(--pur));
+  color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:0.95rem;
+  text-decoration:none;letter-spacing:0.03em;
+  box-shadow:0 8px 30px rgba(124,58,237,0.5);
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;overflow:hidden;
+  animation:pulse-btn 2.8s ease-in-out infinite;
+}
+.hero-cta::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);
+  animation:shimmer 2.2s infinite;
+}
+@keyframes pulse-btn{
+  0%,100%{box-shadow:0 8px 30px rgba(124,58,237,0.5)}
+  50%{box-shadow:0 8px 45px rgba(249,115,22,0.7),0 0 0 6px rgba(249,115,22,0.12)}
+}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+.hero-cta:hover{transform:translateY(-2px)}
+
+/* ══ CUPOS BANNER ══ */
+.cupos-banner{
+  background:linear-gradient(135deg,var(--org),var(--red),var(--pur));
+  color:#fff;text-align:center;
+  padding:12px 1rem;margin-top:1.25rem;
+  font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:800;
+  letter-spacing:0.3px;
+}
+.cupos-banner span{font-weight:400;opacity:0.9}
+
+/* ══ OFFER BANNER ══ */
+.offer-banner{
+  padding:12px 1rem;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.offer-banner-price{
+  font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:800;
+  color:#fff;text-align:center;letter-spacing:0.01em;
+}
+.offer-banner-price .price-old{
+  font-size:0.85rem;color:rgba(255,255,255,0.45);
+  text-decoration:line-through;margin-right:6px;
+}
+.offer-banner-price .price-new{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-size:1.1rem;font-weight:900;
+}
+.offer-mini-timer{
+  display:flex;align-items:center;gap:6px;
+  font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:700;
+  color:#FCA5A5;letter-spacing:0.02em;
+}
+.offer-mini-timer .cd-h,.offer-mini-timer .cd-m,.offer-mini-timer .cd-s{
+  background:rgba(255,255,255,0.08);border-radius:6px;padding:2px 6px;
+  font-family:'Sora',sans-serif;font-weight:800;color:#fff;
+}
+
+/* ══ SECTION IMAGES (carrusel) ══ */
+.post-section{padding:1.75rem 1.25rem 0}
+.post-section img{width:100%;display:block;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,0.4)}
+
+/* ══ CARDS ARCO/SPLIT ══ */
+.cards-section{padding:1.75rem 1.25rem 0;display:flex;flex-direction:column;gap:14px}
+.card-half img{width:100%;display:block;border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,0.4)}
+
+/* ══ COACHES ══ */
+.coaches-section{padding:2rem 1.25rem 0.5rem}
+.section-title{
+  font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:900;
+  text-align:center;margin-bottom:0.35rem;color:#fff;
+}
+.section-sub{font-size:0.82rem;color:var(--mid);text-align:center;margin-bottom:1.5rem}
+.coach-card{
+  display:flex;gap:14px;align-items:center;
+  background:var(--card);border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;padding:14px;margin-bottom:12px;
+}
+.coach-card img{width:84px;height:84px;border-radius:14px;object-fit:cover;flex-shrink:0}
+.coach-name{font-family:'Sora',sans-serif;font-weight:800;font-size:0.95rem;margin-bottom:3px}
+.coach-name .flag{margin-left:4px}
+.coach-role{
+  font-family:'Sora',sans-serif;font-size:0.66rem;font-weight:800;
+  letter-spacing:0.04em;text-transform:uppercase;margin-bottom:5px;
+  background:linear-gradient(90deg,var(--org),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.coach-desc{font-size:0.78rem;color:var(--mid);line-height:1.45}
+
+/* ══ UBICACIÓN ══ */
+.location-section{padding:1.75rem 1.25rem 0.5rem}
+.location-card{
+  background:var(--card);border:1.5px solid rgba(124,58,237,0.3);
+  border-radius:18px;padding:1.25rem;
+}
+.location-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.location-row:last-child{margin-bottom:0}
+.location-icon{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  display:flex;align-items:center;justify-content:center;font-size:0.95rem;
+}
+.location-text-title{font-family:'Sora',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:2px}
+.location-text-sub{font-size:0.78rem;color:var(--mid);line-height:1.5}
+.location-map-link{
+  display:inline-block;margin-top:10px;
+  font-family:'Sora',sans-serif;font-size:0.75rem;font-weight:800;
+  color:var(--org);text-decoration:underline;
+}
+
+/* ══ CTA / PRICING ══ */
+.cta-section{padding:2.25rem 1.25rem;text-align:center}
+.cta-urgency{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.35);
+  border-radius:100px;padding:6px 14px;
+  font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:800;
+  color:#FCA5A5;margin-bottom:1.25rem;letter-spacing:0.04em;
+}
+.cta-title{
+  font-family:'Sora',sans-serif;font-size:1.35rem;font-weight:900;
+  color:#fff;margin-bottom:1.5rem;line-height:1.3;
+}
+.countdown-wrap{margin:0 0 1.5rem 0}
+.countdown-label{
+  font-family:'Sora',sans-serif;font-size:0.74rem;font-weight:800;
+  color:#FCA5A5;text-align:center;margin-bottom:10px;
+  letter-spacing:0.03em;text-transform:uppercase;
+}
+.countdown-timer{display:flex;align-items:center;justify-content:center;gap:8px}
+.countdown-unit{
+  background:linear-gradient(135deg,var(--org),var(--pur));
+  border-radius:12px;padding:10px 12px;min-width:54px;text-align:center;
+  box-shadow:0 4px 16px rgba(124,58,237,0.4);
+}
+.countdown-num{font-family:'Sora',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;line-height:1}
+.countdown-unit-label{font-size:0.58rem;color:rgba(255,255,255,0.85);font-weight:700;text-transform:uppercase;margin-top:3px;letter-spacing:0.02em}
+.countdown-sep{font-family:'Sora',sans-serif;font-weight:900;font-size:1.3rem;color:var(--pur)}
+
+.cta-price{
+  font-family:'Sora',sans-serif;font-size:2.6rem;font-weight:900;
+  margin-bottom:0.35rem;line-height:1;
+}
+.cta-price .price-old{
+  font-size:1.4rem;font-weight:700;color:var(--mid);
+  text-decoration:line-through;margin-right:10px;
+}
+.cta-price .price-new{
+  background:linear-gradient(135deg,var(--org),var(--red),var(--pur));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-price-label{font-size:0.78rem;color:var(--mid);margin-bottom:1.5rem}
+
+.btn-buy{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:17px;border-radius:14px;
+  background:linear-gradient(135deg,var(--org),var(--red),var(--pur));
+  color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:1rem;
+  text-decoration:none;margin-bottom:12px;
+  box-shadow:0 8px 30px rgba(124,58,237,0.4);
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;overflow:hidden;
+}
+.btn-buy::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);
+  animation:shimmer 2.2s infinite;
+}
+.btn-buy:hover{transform:translateY(-3px)}
+.btn-wsp{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:14px;border-radius:14px;
+  background:rgba(37,211,102,0.1);border:1.5px solid rgba(37,211,102,0.35);
+  color:#4ADE80;font-family:'Sora',sans-serif;font-weight:700;font-size:0.9rem;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-wsp:hover{background:rgba(37,211,102,0.18)}
+.pay-divider{
+  font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;
+  color:var(--mid);text-align:center;margin:12px 0;
+  letter-spacing:0.03em;text-transform:uppercase;
+}
+.btn-yape{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:14px;border-radius:14px;
+  background:rgba(124,58,237,0.1);border:1.5px solid rgba(124,58,237,0.4);
+  color:#C4B5FD;font-family:'Sora',sans-serif;font-weight:700;font-size:0.9rem;
+  text-decoration:none;transition:all 0.3s;margin-bottom:12px;
+}
+.btn-yape:hover{background:rgba(124,58,237,0.18)}
+.cta-note{font-size:0.74rem;color:var(--mid);margin-top:12px;line-height:1.6}
+
+/* ══ FAQ ══ */
+.faq-section{padding:1.5rem 1.25rem;max-width:480px;margin:0 auto}
+.faq-title{
+  font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:900;
+  text-align:center;margin-bottom:1rem;color:#fff;
+}
+.faq-item{border:1px solid rgba(255,255,255,0.1);border-radius:14px;margin-bottom:8px;overflow:hidden;background:var(--card)}
+.faq-q{
+  width:100%;text-align:left;padding:14px 16px;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;
+}
+.faq-icon{font-size:1.1rem;flex-shrink:0;transition:transform 0.3s;color:var(--org);font-weight:400}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height 0.35s ease;
+  font-size:0.82rem;color:var(--mid);line-height:1.6;padding:0 16px;
+}
+.faq-item.open .faq-a{max-height:260px;padding:0 16px 14px}
+
+/* ══ FOOTER ══ */
+.footer{
+  text-align:center;padding:1.75rem 1.25rem 2.25rem;
+  border-top:3px solid transparent;
+  border-image:linear-gradient(90deg,var(--org),var(--red),var(--pur),var(--blue)) 1;
+}
+.footer-text{
+  font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:800;
+  color:var(--org);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;
+}
+.footer-brand{font-size:0.66rem;color:var(--mid);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+/* ══ ANIMACIONES ══ */
+[data-anim]{will-change:opacity,transform}
+[data-anim="up"]{opacity:0;transform:translateY(40px)}
+[data-anim="scale"]{opacity:0;transform:scale(0.9)}
+[data-anim="fade"]{opacity:0}
+[data-anim].in{
+  opacity:1 !important;transform:none !important;
+  transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+
+@media(min-width:768px){
+  .wrap{max-width:640px}
+  .hero-img-wrap,.post-section,.cta-section,.coaches-section,.location-section{max-width:640px;margin:0 auto}
+  .hero-img-wrap img{max-width:420px;margin:0 auto;display:block}
+  .cards-section{max-width:640px;margin:0 auto;flex-direction:row}
+  .card-half{flex:1}
+  .btn-buy,.btn-wsp{max-width:420px;margin-left:auto;margin-right:auto}
+  .faq-section{max-width:560px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP BAR ══ -->
+<div class="topbar">
+  <img class="topbar-logo" src="img/cgc-logo.png" alt="CGC Method">
+  <div class="topbar-badge"><span class="live-dot"></span> ATENCIÓN LIMA</div>
+</div>
+
+<!-- ══ HERO (imagen del carrusel) ══ -->
+<div class="hero-img-wrap" data-anim="scale">
+  <img src="img/masterclass-bailarines-cover.jpg" alt="Masterclass para Bailarines — Viernes 28 de agosto con Camila Garay y Sebastián">
+</div>
+
+<div class="hero-cta-block">
+  <p class="hero-info-line">📅 Viernes 28 de agosto &nbsp;·&nbsp; ⏰ 6:00–9:00 p.m. &nbsp;·&nbsp; 📍 Presencial en Acroflex, Jesús María, Lima</p>
+  <a href="#inscripcion" class="hero-cta">💃 QUIERO MI CUPO — Desde S/99</a>
+</div>
+
+<!-- ══ CUPOS BANNER ══ -->
+<div class="cupos-banner" data-anim="up">
+  ⚡ CUPOS LIMITADOS — Viernes 28 de agosto <span>· 6:00–9:00 p.m. · Presencial en Lima</span>
+</div>
+
+<!-- ══ OFFER BANNER ══ -->
+<div class="offer-banner" data-anim="up">
+  <p class="offer-banner-price">🔥 PRECIO EARLY BIRD: <span class="price-old">S/119</span><span class="price-new">S/99</span></p>
+  <div class="offer-mini-timer">⏳ Termina en <span class="cd-h">48</span>h <span class="cd-m">00</span>m <span class="cd-s">00</span>s</div>
+</div>
+
+<!-- ══ PAIN POINT (imagen 3) ══ -->
+<div class="post-section" data-anim="up">
+  <img src="img/masterclass-bailarines-pregunta.jpg" alt="¿Entrenas mucho pero sientes que tu cuerpo no responde como quieres al bailar?">
+</div>
+
+<!-- ══ 3 HORAS PARA TRABAJAR TU CUERPO (imagen 2) ══ -->
+<div class="post-section" data-anim="up">
+  <img src="img/masterclass-bailarines-cuerpo.jpg" alt="3 horas para trabajar tu cuerpo de forma completa: arco, split y preparación física">
+</div>
+
+<!-- ══ CARDS ARCO + SPLIT (imágenes 5 y 4) ══ -->
+<div class="cards-section stagger">
+  <div class="card-half" data-anim="up">
+    <img src="img/masterclass-bailarines-arco.jpg" alt="Mejora tus arcos — mayor movilidad, más control, mejores líneas al bailar">
+  </div>
+  <div class="card-half" data-anim="up">
+    <img src="img/masterclass-bailarines-split.jpg" alt="Lleva tu split al siguiente nivel — flexibilidad, movilidad, técnica y control">
+  </div>
+</div>
+
+<!-- ══ COACHES ══ -->
+<div class="coaches-section wrap">
+  <p class="section-title">Tus <span class="grad-text">coaches</span> ese día</p>
+  <p class="section-sub">3 horas de entrenamiento guiado, en persona, en Lima</p>
+
+  <div class="coach-card" data-anim="up">
+    <img src="img/coach-camila.jpg" alt="Camila Garay">
+    <div>
+      <p class="coach-name">Camila Garay <span class="flag">🇵🇪</span></p>
+      <p class="coach-role">Fundadora · CGC Method</p>
+      <p class="coach-desc">Ex bailarina profesional de ballet clásico, exgimnasta selección nacional. Fundadora de CGC Method — especialista en flexibilidad, acrobacia y técnica de danza, con alumnos en más de 15 países.</p>
+    </div>
+  </div>
+
+  <div class="coach-card" data-anim="up">
+    <img src="img/coach-sebastian.jpg" alt="Sebastián">
+    <div>
+      <p class="coach-name">Sebastián <span class="flag">🇲🇽</span></p>
+      <p class="coach-role">Bailarín profesional de ballet clásico</p>
+      <p class="coach-desc">Viene desde México exclusivamente para esta masterclass. Especialista en preparación física para bailarines: saltos, giros, fuerza y técnica clásica.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ UBICACIÓN ══ -->
+<div class="location-section wrap">
+  <div class="location-card" data-anim="scale">
+    <div class="location-row">
+      <div class="location-icon">📍</div>
+      <div>
+        <p class="location-text-title">Acroflex Training Center</p>
+        <p class="location-text-sub">Av. Húsares de Junín 374, Jesús María, piso 6 — Lima</p>
+        <a class="location-map-link" href="https://www.google.com/maps/search/?api=1&query=Av.+H%C3%BAsares+de+Jun%C3%ADn+374+Jes%C3%BAs+Mar%C3%ADa+Lima" target="_blank" rel="noopener">Ver ubicación en Google Maps →</a>
+      </div>
+    </div>
+    <div class="location-row">
+      <div class="location-icon">⏰</div>
+      <div>
+        <p class="location-text-title">Viernes 28 de agosto</p>
+        <p class="location-text-sub">6:00 p.m. – 9:00 p.m. · 3 horas de entrenamiento en vivo</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CTA / INSCRIPCIÓN ══ -->
+<div class="cta-section wrap" id="inscripcion" data-anim="up">
+  <div class="cta-urgency">⚠️ CUPOS LIMITADOS — RESERVA TU LUGAR</div>
+  <p class="cta-title">Asegura tu cupo para la<br>Masterclass para Bailarines</p>
+
+  <div class="countdown-wrap">
+    <p class="countdown-label">⏳ Precio Early Bird termina en:</p>
+    <div class="countdown-timer">
+      <div class="countdown-unit"><div class="countdown-num cd-h">48</div><div class="countdown-unit-label">Hrs</div></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><div class="countdown-num cd-m">00</div><div class="countdown-unit-label">Min</div></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit"><div class="countdown-num cd-s">00</div><div class="countdown-unit-label">Seg</div></div>
+    </div>
+  </div>
+
+  <p class="cta-price"><span class="price-old">S/119</span><span class="price-new">S/99</span></p>
+  <p class="cta-price-label">Precio por persona · Early Bird</p>
+
+  <a href="https://camilagaraycoach.com/products/masterclass-para-bailarines-viernes-28-de-agosto-cgc-method?variant=48905875783854" class="btn-buy" target="_blank">
+    💃 QUIERO MI CUPO AHORA
+  </a>
+  <a href="https://wa.me/51954655122?text=Hola%20Camila%2C%20tengo%20una%20duda%20sobre%20la%20Masterclass%20para%20Bailarines%20del%2028%20de%20agosto" class="btn-wsp" target="_blank">
+    💬 Tengo una duda — escribir por WhatsApp
+  </a>
+  <p class="cta-note">Pago 100% seguro (cobro en USD, equivalente a S/99) · Cupos limitados · Viernes 28 de agosto · 6:00–9:00 p.m. · Presencial en Acroflex, Jesús María, Lima</p>
+</div>
+
+<!-- ══ RECORDATORIO CARRUSEL (imagen 6) ══ -->
+<div class="post-section" data-anim="up">
+  <img src="img/masterclass-bailarines-cta.jpg" alt="Lima, nos vemos este viernes 28 — Masterclass para Bailarines">
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="faq-section" data-anim="up">
+  <p class="faq-title">Preguntas frecuentes</p>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Necesito experiencia previa en danza o gimnasia?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">No, la masterclass está pensada para distintos niveles. Trabajaremos flexibilidad, fuerza y control desde donde estés, con progresiones guiadas.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Qué debo llevar el día del evento?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Ropa cómoda de entrenamiento, agua y muchas ganas. Cada bailarín debe traer 2 bloques de yoga y 1 liga (de números o cerrada).</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Es solo para mujeres o también para hombres?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Es para todos. Bailarines y bailarinas de cualquier disciplina que quieran mejorar su arco, split y preparación física.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Hasta cuándo dura el precio Early Bird de S/99?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">El precio especial de S/99 es por tiempo limitado. Después de eso, el precio regular es S/119. Reserva tu cupo cuanto antes para asegurarlo.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      ¿Cómo reservo y pago mi cupo?<span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Escríbenos por WhatsApp para confirmar tu cupo y coordinar el pago. Al ser un evento presencial con cupos limitados, confirmamos cada inscripción directamente contigo.</div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer" data-anim="fade">
+  <p class="footer-text">💃 CUPOS LIMITADOS · RESERVA TU LUGAR</p>
+  <p class="footer-brand">CGC METHOD • FLEXIBILITY, ACRO &amp; DANCE TECHNIQUE</p>
+</div>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const delay = e.target.dataset.delay || 0;
+      setTimeout(() => e.target.classList.add('in'), delay);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.stagger [data-anim]').forEach((el, i) => {
+  el.dataset.delay = i * 100;
+});
+
+document.querySelectorAll('[data-anim]').forEach(el => io.observe(el));
+
+(function(){
+  const KEY = 'cgc_masterclass_bailarines_offer_expiry';
+  const DURATION = 48 * 60 * 60 * 1000;
+  let expiry = parseInt(localStorage.getItem(KEY), 10);
+  if(!expiry || Date.now() > expiry){
+    expiry = Date.now() + DURATION;
+    localStorage.setItem(KEY, expiry);
+  }
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    let diff = expiry - Date.now();
+    if(diff <= 0){
+      expiry = Date.now() + DURATION;
+      localStorage.setItem(KEY, expiry);
+      diff = DURATION;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.querySelectorAll('.cd-h').forEach(el => el.textContent = pad(h));
+    document.querySelectorAll('.cd-m').forEach(el => el.textContent = pad(m));
+    document.querySelectorAll('.cd-s').forEach(el => el.textContent = pad(s));
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
